@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rzainurtanto — Web &amp; Android Developer</title>
+  <meta name="description" content="Portfolio Rzainurtanto, web &amp; Android developer yang membangun website dan aplikasi Android yang cepat, rapi, dan interaktif." />
+  <meta name="author" content="Rzainurtanto" />
+  <meta name="theme-color" content="#f5eddf" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rzainurtanto — Web &amp; Android Developer" />
+  <meta property="og:description" content="Website dan aplikasi Android yang terasa personal, playful, dan rapi." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%2317152a'/%3E%3Cpath fill='%23ff4f91' d='M3 1h2v2h2v2H5v2H3V5H1V3h2z'/%3E%3C/svg%3E" />
+
+  <!-- Terapkan tema sebelum render agar tidak berkedip -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.replace('no-js', 'js');
+      // Saat refresh, mulai dari atas (jangan pulihkan posisi scroll terakhir)
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      try {
+        var theme = localStorage.getItem('theme');
+        if (!theme) theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="Rzainurtanto, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">✦</span> RZAINURTANTO
+      </a>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <ul class="nav-links" id="nav-links">
+          <li><a class="active" aria-current="true" href="#home"><span>01</span>HOME</a></li>
+          <li><a href="#about"><span>02</span>ABOUT</a></li>
+          <li><a href="#services"><span>03</span>SERVICES</a></li>
+          <li><a href="#work"><span>04</span>WORK</a></li>
+          <li><a href="#hobby"><span>05</span>HOBBY</a></li>
+          <li><a href="#contact"><span>06</span>CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="topbar-actions">
+        <div class="music-wrap">
+          <button class="icon-button music-toggle" type="button" aria-expanded="false" aria-controls="music-panel" aria-label="Buka pemutar musik" title="Musik latar">
+            <span class="music-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <div class="music-panel" id="music-panel" role="group" aria-label="Pemutar musik" hidden>
+            <div class="music-panel-top">
+              <span><span class="music-dot" aria-hidden="true"></span> MUSIC PLAYER</span>
+              <button class="music-close" type="button" aria-label="Tutup pemutar musik">X</button>
+            </div>
+            <div class="music-track">
+              <span class="music-disc" aria-hidden="true"></span>
+              <div class="music-meta">
+                <p class="music-title">Suiheisen</p>
+                <p class="music-artist">back number · 水平線</p>
+              </div>
+            </div>
+            <div class="music-controls">
+              <button class="music-play" type="button" aria-label="Putar lagu"><i aria-hidden="true"></i></button>
+              <label class="music-volume">
+                <span>VOL</span>
+                <input type="range" min="0" max="100" step="5" value="5" aria-label="Volume musik" />
+                <output>5%</output>
+              </label>
+            </div>
+          </div>
+        </div>
+        <button class="icon-button theme-toggle" type="button" aria-pressed="false" aria-label="Aktifkan mode gelap">
+          <span aria-hidden="true">☾</span>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Buka menu">
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="exp-bar" aria-hidden="true"><i></i></div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="blink-dot" aria-hidden="true"></span> ONLINE — OPEN FOR COLLABORATION</p>
+        <h1 id="hero-title">
+          <span class="line">MAKE IT</span>
+          <span class="line pink-text">PIXEL.</span>
+          <span class="line">MAKE IT</span>
+          <span class="line cyan-text">ALIVE<span class="cursor" aria-hidden="true">_</span></span>
+        </h1>
+        <p class="hero-intro">Hai, aku <strong>Rzainurtanto</strong> — web &amp; Android developer yang membangun website dan aplikasi Android penuh warna, karakter, dan interaksi yang menyenangkan.</p>
+
+        <ul class="role-list" aria-label="Keahlian utama">
+          <li style="--c: var(--pink)">WEB DEV</li>
+          <li style="--c: var(--cyan)">ANDROID DEV</li>
+          <li style="--c: var(--violet)">MOTION</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="pixel-button" href="#work">LIHAT KARYA <span aria-hidden="true">→</span></a>
+          <a class="pixel-button ghost" href="#contact">AJAK KOLABORASI</a>
+        </div>
+
+        <div class="status-line" aria-hidden="true">
+          <span>LVL 24</span>
+          <span class="status-bar"><i></i></span>
+          <span>EXP 70%</span>
+        </div>
+      </div>
+
+      <div class="hero-stage reveal" style="--d: .15s">
+      <div class="hero-art" role="group" aria-label="Ilustrasi bergaya pixel: karakter di depan langit kota yang berubah mengikuti waktu">
+        <div class="stars"></div>
+        <div class="hud">
+          <span>HP <b>♥♥♥</b>♡</span>
+          <button class="hud-time" type="button" title="Klik untuk ganti waktu (pagi, siang, sore, malam)">MALAM 00:00</button>
+        </div>
+        <div class="moon"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="city city-back"></div>
+        <div class="city city-front"></div>
+
+        <div class="character">
+          <div class="head">
+            <div class="hair-front"></div>
+            <i class="ear left"></i><i class="ear right"></i>
+            <span class="face-eye eye-left"></span><span class="face-eye eye-right"></span>
+            <span class="mouth"></span>
+          </div>
+          <div class="neck"></div>
+          <div class="body">
+            <span class="collar"></span><span class="ribbon"></span>
+            <i class="arm arm-left"></i><i class="arm arm-right"></i>
+            <span class="pixel-phone"><i class="hand hand-left"></i><i class="hand hand-right"></i></span>
+          </div>
+        </div>
+
+        <div class="speech-bubble"><span class="bubble-line-one">LET'S</span><br /><span class="bubble-line-two">CREATE!</span></div>
+        <div class="ladder" aria-hidden="true"></div>
+        <!-- Teman kecil yang berkeliaran di dalam pemandangan (fan art pixel chibi) -->
+        <div class="buddy buddy-zerotwo" aria-hidden="true" title="Zero Two">
+          <span class="zzz"><i>z</i><i>z</i><i>Z</i></span>
+          <svg viewBox="0 0 12 15" shape-rendering="crispEdges">
+            <rect x="3" y="0" width="1" height="2" fill="#e8364f"/><rect x="8" y="0" width="1" height="2" fill="#e8364f"/>
+            <rect x="2" y="1" width="8" height="1" fill="#ff8fb8"/>
+            <rect x="1" y="2" width="10" height="2" fill="#ff8fb8"/>
+            <rect x="3" y="2" width="6" height="1" fill="#f5eddf"/>
+            <rect x="1" y="4" width="2" height="8" fill="#ff8fb8"/><rect x="9" y="4" width="2" height="8" fill="#ff8fb8"/>
+            <rect x="3" y="4" width="6" height="1" fill="#ff8fb8"/>
+            <rect x="3" y="5" width="6" height="2" fill="#ffd9c4"/>
+            <g class="eye-open"><rect x="4" y="5" width="1" height="1" fill="#2bb5a0"/><rect x="7" y="5" width="1" height="1" fill="#2bb5a0"/></g>
+            <g class="eye-closed"><rect x="3.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/><rect x="6.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/></g>
+            <rect x="3" y="6" width="1" height="1" fill="#ff9aa8"/><rect x="8" y="6" width="1" height="1" fill="#ff9aa8"/>
+            <rect x="3" y="7" width="6" height="5" fill="#e8364f"/>
+            <rect x="5" y="7" width="2" height="2" fill="#f5eddf"/>
+            <rect x="3" y="10" width="6" height="1" fill="#17152a"/>
+            <rect x="1" y="12" width="1" height="1" fill="#ff8fb8"/><rect x="10" y="12" width="1" height="1" fill="#ff8fb8"/>
+            <g class="leg-a"><rect x="3" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="7" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="3" y="14" width="2" height="1" fill="#17152a"/><rect x="7" y="14" width="2" height="1" fill="#17152a"/></g>
+            <g class="leg-b"><rect x="4" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="6" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="4" y="14" width="2" height="1" fill="#17152a"/><rect x="6" y="14" width="2" height="1" fill="#17152a"/></g>
+          </svg>
+        </div>
+
+        <div class="buddy buddy-kanao" aria-hidden="true" title="Kanao Tsuyuri">
+          <span class="zzz"><i>z</i><i>z</i><i>Z</i></span>
+          <svg viewBox="0 0 12 15" shape-rendering="crispEdges">
+            <rect x="3" y="1" width="6" height="1" fill="#1f1b2e"/>
+            <rect x="2" y="2" width="8" height="3" fill="#1f1b2e"/>
+            <rect x="10" y="2" width="1" height="1" fill="#ff7ab6"/><rect x="11" y="2" width="1" height="1" fill="#9c7bff"/>
+            <rect x="10" y="3" width="1" height="1" fill="#9c7bff"/><rect x="11" y="3" width="1" height="1" fill="#ff7ab6"/>
+            <rect x="0" y="3" width="2" height="1" fill="#1f1b2e"/><rect x="1" y="3" width="1" height="1" fill="#ff7ab6"/>
+            <rect x="0" y="4" width="1" height="4" fill="#1f1b2e"/>
+            <rect x="2" y="5" width="1" height="2" fill="#1f1b2e"/><rect x="9" y="5" width="1" height="2" fill="#1f1b2e"/>
+            <rect x="3" y="5" width="6" height="2" fill="#ffd9c4"/>
+            <g class="eye-open"><rect x="4" y="5" width="1" height="1" fill="#8f6bd6"/><rect x="7" y="5" width="1" height="1" fill="#8f6bd6"/></g>
+            <g class="eye-closed"><rect x="3.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/><rect x="6.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/></g>
+            <rect x="3" y="6" width="1" height="1" fill="#ff9aa8"/><rect x="8" y="6" width="1" height="1" fill="#ff9aa8"/>
+            <rect x="2" y="7" width="8" height="5" fill="#f5eddf"/>
+            <rect x="4" y="7" width="4" height="5" fill="#1f1b2e"/>
+            <rect x="4" y="10" width="4" height="1" fill="#f5eddf"/>
+            <g class="leg-a"><rect x="10" y="6" width="1" height="3" fill="#f5eddf"/><rect x="10" y="5" width="1" height="1" fill="#ffd9c4"/><rect x="1" y="8" width="1" height="3" fill="#f5eddf"/><rect x="1" y="11" width="1" height="1" fill="#ffd9c4"/></g>
+            <g class="leg-b"><rect x="10" y="8" width="1" height="3" fill="#f5eddf"/><rect x="10" y="11" width="1" height="1" fill="#ffd9c4"/><rect x="1" y="6" width="1" height="3" fill="#f5eddf"/><rect x="1" y="5" width="1" height="1" fill="#ffd9c4"/></g>
+            <g class="leg-a"><rect x="3" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="7" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="3" y="14" width="2" height="1" fill="#1f1b2e"/><rect x="7" y="14" width="2" height="1" fill="#1f1b2e"/></g>
+            <g class="leg-b"><rect x="4" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="6" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="4" y="14" width="2" height="1" fill="#1f1b2e"/><rect x="6" y="14" width="2" height="1" fill="#1f1b2e"/></g>
+          </svg>
+        </div>
+        <div class="art-label"><span>NPC_001</span><small class="scene-label">night shift</small></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-heading"><span class="section-number">02</span><h2 id="about-title">PLAYER PROFILE</h2><span class="heading-line"></span></div>
+        </div>
+
+        <div class="profile-grid">
+          <aside class="profile-card reveal">
+            <div class="profile-top">
+              <div class="avatar-frame">
+                <img class="profile-photo" src="assets/profile/foto-profil.jpg" alt="Foto Rzainurtanto" width="720" height="963" loading="lazy" />
+              </div>
+              <div>
+                <p class="card-kicker">CURRENTLY PLAYING</p>
+                <h3>RZAINURTANTO</h3>
+                <p class="muted">Web &amp; Android Developer</p>
+              </div>
+            </div>
+            <dl class="profile-meta">
+              <div><dt>CLASS</dt><dd>Web Developer</dd></div>
+              <div><dt>SPECIAL</dt><dd>Android App</dd></div>
+              <div><dt>STATUS</dt><dd><span class="status-dot" aria-hidden="true"></span>Open for work</dd></div>
+            </dl>
+            <span class="card-corner" aria-hidden="true">✦</span>
+
+            <!-- Chinatsu Kano (fan art pixel chibi) mondar-mandir di atas kartu -->
+            <div class="buddy buddy-chinatsu" aria-hidden="true" title="Chinatsu Kano">
+              <span class="zzz"><i>z</i><i>z</i><i>Z</i></span>
+              <svg viewBox="0 0 12 15" shape-rendering="crispEdges">
+                <rect x="3" y="1" width="6" height="1" fill="#8a5636"/>
+                <rect x="2" y="2" width="8" height="3" fill="#8a5636"/>
+                <rect x="4" y="2" width="3" height="1" fill="#b07a52"/>
+                <rect x="2" y="5" width="1" height="4" fill="#8a5636"/><rect x="9" y="5" width="1" height="4" fill="#8a5636"/>
+                <rect x="3" y="5" width="6" height="2" fill="#ffd9c4"/>
+                <g class="eye-open"><rect x="4" y="5" width="1" height="1" fill="#5a3b2a"/><rect x="7" y="5" width="1" height="1" fill="#5a3b2a"/></g>
+                <g class="eye-closed"><rect x="3.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/><rect x="6.7" y="5.55" width="1.6" height="0.45" fill="#17152a"/></g>
+                <rect x="3" y="6" width="1" height="1" fill="#ff9aa8"/><rect x="8" y="6" width="1" height="1" fill="#ff9aa8"/>
+                <rect x="3" y="7" width="6" height="4" fill="#2b3a67"/>
+                <rect x="5" y="7" width="2" height="1" fill="#f5eddf"/>
+                <rect x="5" y="8" width="2" height="1" fill="#e8364f"/>
+                <rect x="2" y="9" width="1" height="2" fill="#2b3a67"/><rect x="9" y="9" width="1" height="2" fill="#2b3a67"/>
+                <rect x="2" y="11" width="1" height="1" fill="#ffd9c4"/><rect x="9" y="11" width="1" height="1" fill="#ffd9c4"/>
+                <rect x="3" y="11" width="6" height="1" fill="#5b6180"/>
+                <g class="leg-a"><rect x="3" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="7" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="3" y="14" width="2" height="1" fill="#3b2a20"/><rect x="7" y="14" width="2" height="1" fill="#3b2a20"/></g>
+                <g class="leg-b"><rect x="4" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="6" y="12" width="2" height="2" fill="#ffd9c4"/><rect x="4" y="14" width="2" height="1" fill="#3b2a20"/><rect x="6" y="14" width="2" height="1" fill="#3b2a20"/></g>
+              </svg>
+            </div>
+          </aside>
+
+          <div class="about-text reveal" style="--d: .1s">
+            <p class="big-copy">Aku percaya setiap interface bisa terasa seperti <em>tempat</em>, bukan cuma halaman.</p>
+            <p>Berangkat dari kecintaan pada game handheld, anime 90-an, dan internet awal, aku membangun pengalaman digital yang terasa personal, playful, dan sedikit ajaib tanpa mengorbankan kecepatan, aksesibilitas, dan detail yang rapi.</p>
+            <dl class="stats">
+              <div><dt>SEMESTER</dt><dd>05</dd></div>
+              <div><dt>QUEST SELESAI</dt><dd>10</dd></div>
+              <div><dt>IDE AKTIF</dt><dd>∞</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-tree reveal">
+            <h3 class="panel-title"><span aria-hidden="true">▸</span> SKILL TREE</h3>
+            <ul class="skill-list">
+              <li class="skill" style="--level: 9; --c: var(--pink); --i: 0"><span class="skill-name">HTML / CSS</span><span class="skill-bar"><i></i></span><span class="skill-level">LV 9<span class="sr-only"> dari 10</span></span></li>
+              <li class="skill" style="--level: 8; --c: var(--cyan); --i: 1"><span class="skill-name">JAVASCRIPT</span><span class="skill-bar"><i></i></span><span class="skill-level">LV 8<span class="sr-only"> dari 10</span></span></li>
+              <li class="skill" style="--level: 8; --c: var(--violet); --i: 2"><span class="skill-name">ANDROID APP</span><span class="skill-bar"><i></i></span><span class="skill-level">LV 8<span class="sr-only"> dari 10</span></span></li>
+              <li class="skill" style="--level: 8; --c: var(--yellow); --i: 3"><span class="skill-name">RESPONSIVE WEB</span><span class="skill-bar"><i></i></span><span class="skill-level">LV 8<span class="sr-only"> dari 10</span></span></li>
+              <li class="skill" style="--level: 7; --c: var(--pink); --i: 4"><span class="skill-name">MOTION</span><span class="skill-bar"><i></i></span><span class="skill-level">LV 7<span class="sr-only"> dari 10</span></span></li>
+            </ul>
+          </div>
+
+          <div class="inventory reveal" style="--d: .1s">
+            <h3 class="panel-title"><span aria-hidden="true">▸</span> INVENTORY</h3>
+            <ul class="inventory-grid">
+              <li><span class="item-icon" style="--c: var(--pink)" aria-hidden="true">&lt;/&gt;</span>HTML</li>
+              <li><span class="item-icon" style="--c: var(--cyan)" aria-hidden="true">{ }</span>CSS</li>
+              <li><span class="item-icon" style="--c: var(--yellow)" aria-hidden="true">JS</span>JavaScript</li>
+              <li><span class="item-icon" style="--c: var(--cyan)" aria-hidden="true">Fl</span>Flutter</li>
+              <li><span class="item-icon" style="--c: var(--violet)" aria-hidden="true">Dt</span>Dart</li>
+              <li><span class="item-icon" style="--c: var(--yellow)" aria-hidden="true">Fb</span>Firebase</li>
+              <li><span class="item-icon" style="--c: var(--violet)" aria-hidden="true">Ad</span>Android Studio</li>
+              <li><span class="item-icon" style="--c: var(--pink)" aria-hidden="true">VS</span>VS Code</li>
+              <li><span class="item-icon" style="--c: var(--cyan)" aria-hidden="true">Ae</span>After Effects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-heading"><span class="section-number">03</span><h2 id="services-title">SPECIAL MOVES</h2><span class="heading-line"></span></div>
+          <p class="section-lead">Tiga jurus utama yang bisa aku bawa ke project-mu — dipakai sendiri atau dikombinasikan.</p>
+        </div>
+
+        <div class="moves-grid">
+          <article class="move-card reveal" style="--accent: var(--pink)">
+            <div class="move-top"><span class="move-icon" aria-hidden="true">&lt;/&gt;</span><span class="move-key" aria-hidden="true">A</span></div>
+            <h3>WEB DEVELOPMENT</h3>
+            <p>Website dan landing page responsif yang cepat, rapi, dan nyaman diakses dari perangkat apa pun.</p>
+            <ul class="move-list"><li>Landing page &amp; portfolio</li><li>Interaksi &amp; animasi</li><li>Performa &amp; aksesibilitas</li></ul>
+          </article>
+          <article class="move-card reveal" style="--accent: var(--cyan); --d: .1s">
+            <div class="move-top"><span class="move-icon" aria-hidden="true">APP</span><span class="move-key" aria-hidden="true">B</span></div>
+            <h3>ANDROID APP DEVELOPMENT</h3>
+            <p>Aplikasi Android yang ringan, rapi, dan enak dipakai — dari desain layar sampai aplikasi siap dipakai.</p>
+            <ul class="move-list"><li>Aplikasi Android dengan Flutter</li><li>Integrasi Firebase &amp; database</li></ul>
+          </article>
+          <article class="move-card reveal" style="--accent: var(--yellow); --d: .2s">
+            <div class="move-top"><span class="move-icon" aria-hidden="true">FX</span><span class="move-key" aria-hidden="true">X</span></div>
+            <h3>MOTION GRAPHIC</h3>
+            <p>Animasi dan motion graphic untuk identitas brand, intro video, atau konten sosial media.</p>
+            <ul class="move-list"><li>Animasi logo &amp; intro</li><li>Konten sosial media</li><li>Animasi loop</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work" class="section section-alt" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-heading"><span class="section-number">04</span><h2 id="work-title">SELECTED QUESTS</h2><span class="heading-line"></span></div>
+          <p class="section-lead">Klik salah satu project untuk melihat foto, video, dan detail hasil kerjaku.</p>
+        </div>
+
+        <div class="filter-tabs reveal" role="group" aria-label="Filter project">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+          <button class="filter" type="button" data-filter="web" aria-pressed="false">WEB</button>
+          <button class="filter" type="button" data-filter="android" aria-pressed="false">ANDROID</button>
+          <button class="filter" type="button" data-filter="motion" aria-pressed="false">MOTION</button>
+        </div>
+        <p class="sr-only" id="filter-status" aria-live="polite"></p>
+
+        <!--
+          CARA MENGISI PROJECT
+          - data-images : daftar foto/video hasil kerja (pisahkan dengan koma). Taruh file-nya di folder "assets/projects/<nama-project>/".
+                          Video (.mp4 / .webm) otomatis tampil dengan tombol play.
+          - data-poster : (opsional) gambar cover untuk project video.
+                          Foto pertama otomatis jadi cover kartu. Kalau fotonya belum ada, tampil placeholder.
+          - data-link   : link project (website, GitHub, Google Drive, Behance, dll). Kosongkan kalau belum ada.
+          - data-link-label : tulisan pada tombol link.
+          - data-link-alt / data-link-alt-label : (opsional) tombol link kedua, misalnya video demo.
+          - <template class="project-detail"> : deskripsi lengkap yang muncul di jendela detail.
+        -->
+        <div class="project-grid">
+          <article class="project-card reveal" data-category="web"
+            data-images="assets/projects/stickerkit/01-upload.jpg, assets/projects/stickerkit/02-crop.jpg, assets/projects/stickerkit/03-editor.jpg, assets/projects/stickerkit/04-hapus-background.jpg, assets/projects/stickerkit/05-pengaturan-teks.jpg, assets/projects/stickerkit/06-hasil-stiker.jpg, assets/projects/stickerkit/07-gif-editor.jpg, assets/projects/stickerkit/08-potong-durasi.jpg, assets/projects/stickerkit/09-hasil-gif.jpg"
+            data-poster="assets/projects/stickerkit/poster.jpg"
+            data-link="" data-link-label="KUNJUNGI WEBSITE">
+            <div class="project-visual visual-one" aria-hidden="true"><span class="visual-sun"></span><span class="visual-window"></span><span class="visual-plant"></span><span class="visual-hint">LIHAT DETAIL</span></div>
+            <div class="project-meta"><span>WEB · FULL STACK</span><span>2026</span></div>
+            <h3>STICKERKIT</h3>
+            <p>Web app pembuat stiker dan animasi GIF dari gambar atau video, dengan kompresi file menggunakan FFmpeg.</p>
+            <ul class="project-tags"><li>WEB APP</li><li>FFMPEG</li><li>FULL STACK</li></ul>
+            <button type="button" class="project-link">OPEN QUEST <span aria-hidden="true">→</span></button>
+            <template class="project-detail">
+              <p><strong>StickerKit</strong> adalah web app untuk membuat <strong>stiker</strong> dan <strong>animasi GIF</strong> langsung dari browser. Pengguna cukup mengunggah gambar untuk diubah menjadi stiker, atau mengunggah video untuk dikonversi menjadi GIF, lengkap dengan teks ala meme. Project ini aku buat sebagai <strong>tugas kuliah di PENS</strong> (Politeknik Elektronika Negeri Surabaya).</p>
+              <p>Pemrosesan video dan kompresi gambar memakai <strong>FFmpeg</strong>, sehingga hasil akhirnya ringan dan siap dibagikan, misalnya sebagai stiker WhatsApp.</p>
+              <h4>PERAN</h4>
+              <p><strong>Full Stack Developer.</strong> Aku mengerjakan tampilan dan alur penggunaan di sisi front-end, sekaligus pemrosesan file dengan FFmpeg di sisi back-end.</p>
+              <h4>FITUR UTAMA</h4>
+              <ul>
+                <li>Upload gambar (JPG, PNG) atau video (MP4, MOV) hingga 50 MB lewat drag &amp; drop</li>
+                <li>Crop gambar dengan opsi rasio 1:1 yang pas untuk stiker WhatsApp</li>
+                <li>Hapus background gambar</li>
+                <li>Teks ala meme: pilih font, gaya, ukuran, warna, dan outline, lalu geser posisinya langsung di preview</li>
+                <li>Export stiker ke PNG atau WebP dengan 3 pilihan resolusi yang sekaligus mengompres ukuran file</li>
+                <li>Konversi video ke GIF: potong durasi, atur FPS (5–15), pilih resolusi, dan tambahkan teks yang di-embed langsung ke GIF</li>
+                <li>Estimasi ukuran file sebelum diunduh</li>
+              </ul>
+            </template>
+          </article>
+
+          <article class="project-card reveal" style="--d: .1s" data-category="web"
+            data-images="assets/projects/pensight/01-menu.jpg, assets/projects/pensight/02-scan-marker.jpg, assets/projects/pensight/03-info-ruangan.jpg, assets/projects/pensight/04-tentang.jpg, assets/projects/pensight/05-proses-pengerjaan.jpg"
+            data-poster="assets/projects/pensight/poster.jpg"
+            data-link="https://rzainurtanto.met.student.pens.ac.id/PENSIGHT/index.html" data-link-label="COBA PENSIGHT"
+            data-link-alt="https://www.instagram.com/p/DR6IABmk-td/" data-link-alt-label="VIDEO DEMO">
+            <div class="project-visual visual-one" aria-hidden="true"><span class="visual-sun"></span><span class="visual-window"></span><span class="visual-plant"></span><span class="visual-hint">LIHAT DETAIL</span></div>
+            <div class="project-meta"><span>WEB AR · PROGRAMMER</span><span>2025</span></div>
+            <h3>PENSIGHT</h3>
+            <p>Platform informasi ruangan kampus PENS berbasis Augmented Reality yang berjalan langsung di browser HP.</p>
+            <ul class="project-tags"><li>WEB AR</li><li>MINDAR</li><li>TEAM PROJECT</li></ul>
+            <button type="button" class="project-link">OPEN QUEST <span aria-hidden="true">→</span></button>
+            <template class="project-detail">
+              <p><strong>PENSIGHT</strong> adalah platform informasi ruangan berbasis <strong>Augmented Reality (AR)</strong> untuk kampus PENS. Cukup arahkan kamera HP ke marker di depan ruangan, lalu papan info virtual muncul melayang di atas marker, lengkap dengan nama ruangan, fungsi, dan fasilitasnya.</p>
+              <p>Aplikasinya berjalan langsung di browser (<strong>WebAR</strong>), jadi mahasiswa, dosen, maupun pengunjung bisa memakainya tanpa menginstal aplikasi. Project ini dibuat sebagai <strong>tugas kuliah</strong> oleh tim mahasiswa TRM A 2024 PENS.</p>
+              <h4>PERAN</h4>
+              <p><strong>Programmer.</strong> Aku mengerjakan sisi kode bersama satu rekan programmer, yaitu halaman web dan sistem AR-nya, dalam tim enam orang (1 project manager, 2 programmer, 3 creative) dengan bimbingan dosen pengampu.</p>
+              <h4>FITUR UTAMA</h4>
+              <ul>
+                <li><strong>23 marker</strong> untuk <strong>17 lokasi kampus</strong>: lab multimedia, ruang dosen, auditorium, perpustakaan, mushola, mini teater, data center, cafetaria, dan lainnya</li>
+                <li>Saat marker terdeteksi, papan info AR muncul melayang dan tombol "Lihat info" tampil otomatis</li>
+                <li>Panel info ruangan (kode ruang, nama, deskripsi, fasilitas) yang tetap terbaca walau kamera digeser</li>
+                <li>Halaman tutorial dengan video cara menggunakan</li>
+                <li>Berjalan di browser HP tanpa perlu instalasi aplikasi</li>
+              </ul>
+              <h4>TEKNOLOGI</h4>
+              <ul>
+                <li>HTML, CSS, dan JavaScript</li>
+                <li>A-Frame (framework WebXR) dan MindAR (image tracking) untuk AR di browser</li>
+              </ul>
+            </template>
+          </article>
+
+          <article class="project-card reveal" data-category="web"
+            data-images="assets/projects/jejaknusa/01-beranda.jpg, assets/projects/jejaknusa/02-cerita-terbaru.jpg, assets/projects/jejaknusa/03-promosi-travel.jpg, assets/projects/jejaknusa/04-tren-gunung.jpg, assets/projects/jejaknusa/05-jelajahi-indonesia.jpg, assets/projects/jejaknusa/06-daftar-destinasi.jpg, assets/projects/jejaknusa/07-tentang-kami.jpg, assets/projects/jejaknusa/08-galeri.jpg"
+            data-poster="assets/projects/jejaknusa/poster.jpg"
+            data-link="https://arguspermono.github.io/frontend-web-jejaknusa" data-link-label="KUNJUNGI WEBSITE"
+            data-link-alt="https://github.com/arguspermono/frontend-web-jejaknusa" data-link-alt-label="LIHAT DI GITHUB">
+            <div class="project-visual visual-one" aria-hidden="true"><span class="visual-sun"></span><span class="visual-window"></span><span class="visual-plant"></span><span class="visual-hint">LIHAT DETAIL</span></div>
+            <div class="project-meta"><span>WEB · FRONTEND</span><span>2026</span></div>
+            <h3>JEJAKNUSA</h3>
+            <p>Website platform travel untuk menemukan dan merencanakan perjalanan ke destinasi terbaik di Indonesia.</p>
+            <ul class="project-tags"><li>TAILWIND CSS</li><li>VITE</li><li>TEAM PROJECT</li></ul>
+            <button type="button" class="project-link">OPEN QUEST <span aria-hidden="true">→</span></button>
+            <template class="project-detail">
+              <p><strong>JejakNusa</strong> adalah website platform travel untuk menemukan dan merencanakan perjalanan ke destinasi terbaik di Indonesia, dari Gunung Bromo dan Raja Ampat sampai Candi Borobudur, lengkap dengan cerita perjalanan dan galeri.</p>
+              <p>Project ini dibuat sebagai <strong>tugas kuliah</strong> oleh tim lima orang. Fokusnya ada di tampilan dan pengalaman pengguna, jadi data destinasinya disimpan secara statis tanpa database, dan website-nya di-deploy otomatis ke GitHub Pages.</p>
+              <h4>PERAN</h4>
+              <p><strong>Frontend Developer.</strong> Aku menjadi salah satu dari dua pengembang frontend, membangun halaman dan komponen website bersama rekan satu tim. Timnya terdiri dari project manager, UI/UX designer, 2 frontend developer, dan quality control.</p>
+              <h4>FITUR UTAMA</h4>
+              <ul>
+                <li>Halaman Beranda, Destinasi, Detail Destinasi, Artikel, dan Tentang Kami</li>
+                <li>Filter destinasi berdasarkan kategori: alam, budaya, gunung, pantai, dan kota</li>
+                <li>Dua bahasa (Indonesia &amp; Inggris) yang bisa diganti kapan saja</li>
+                <li>Mode gelap dan terang</li>
+                <li>Peta Google Maps untuk rute menuju destinasi</li>
+                <li>Komponen modular (navbar, footer, dan lainnya) yang dimuat dengan JavaScript, sehingga kodenya tetap rapi</li>
+                <li>Responsif di HP maupun desktop</li>
+              </ul>
+              <h4>TEKNOLOGI</h4>
+              <ul>
+                <li>HTML5 dan JavaScript (vanilla)</li>
+                <li>Tailwind CSS</li>
+                <li>Vite sebagai build tool</li>
+                <li>GitHub Actions untuk deploy otomatis ke GitHub Pages</li>
+              </ul>
+            </template>
+          </article>
+
+          <article class="project-card reveal" style="--d: .1s" data-category="android"
+            data-images="assets/projects/berkasir/01-loading.jpg, assets/projects/berkasir/02-pilih-kasir.jpg, assets/projects/berkasir/03-login.jpg, assets/projects/berkasir/04-dashboard.jpg, assets/projects/berkasir/05-transaksi.jpg, assets/projects/berkasir/06-riwayat.jpg, assets/projects/berkasir/07-pelanggan.jpg, assets/projects/berkasir/08-laporan.jpg"
+            data-poster="assets/projects/berkasir/poster.jpg"
+            data-link="" data-link-label="LIHAT DI GITHUB">
+            <div class="project-visual visual-four" aria-hidden="true"><span class="app-phone"><span class="app-screen"><i></i><i></i><i></i><i></i><i></i></span></span><span class="app-badge">v1.0</span><span class="visual-hint">LIHAT DETAIL</span></div>
+            <div class="project-meta"><span>ANDROID · FULL STACK</span><span>2026</span></div>
+            <h3>BERKASIR</h3>
+            <p>Aplikasi kasir digital (Point of Sale) berbasis Flutter &amp; Firebase untuk transaksi, stok, dan laporan toko retail.</p>
+            <ul class="project-tags"><li>FLUTTER</li><li>FIREBASE</li><li>POINT OF SALE</li></ul>
+            <button type="button" class="project-link">OPEN QUEST <span aria-hidden="true">→</span></button>
+            <template class="project-detail">
+              <p><strong>Berkasir</strong> adalah aplikasi kasir digital (Point of Sale) untuk Android yang aku bangun dengan <strong>Flutter</strong> dan <strong>Firebase</strong>, dan diterapkan di <strong>Tabreez Mart</strong>. Aplikasi ini menggantikan pencatatan manual: penjualan, stok, pembelian ke supplier, sampai laporan laba rugi tercatat rapi dalam satu sistem.</p>
+              <p>Dari satu codebase, aku menghasilkan <strong>dua aplikasi</strong>: <strong>Berkasir Kasir</strong> untuk melayani pembeli di meja kasir, dan <strong>Berkasir Owner</strong> untuk pemilik toko yang memantau bisnis. Data tersinkron secara real-time lewat Cloud Firestore, dengan hak akses berbeda untuk owner dan kasir.</p>
+              <h4>PERAN</h4>
+              <p><strong>Full Stack Developer.</strong> Aku mengerjakan tampilan dan alur aplikasi di Flutter, sekaligus sisi back-end di Firebase: struktur database, autentikasi akun kasir, dan aturan hak akses.</p>
+              <h4>FITUR UTAMA</h4>
+              <ul>
+                <li>Login kasir dengan PIN, multi-akun, dan manajemen shift (ganti shift &amp; tutup toko)</li>
+                <li>Transaksi cepat: cari produk, filter kategori, scan barcode dengan kamera, dan harga khusus per pelanggan</li>
+                <li>Cetak struk ke printer thermal Bluetooth atau kirim struk lewat WhatsApp</li>
+                <li>Faktur pembelian supplier, stock opname, retur pembeli, dan retur ke supplier</li>
+                <li>Laporan transaksi, stok, dan laba rugi yang bisa diekspor ke PDF dan Excel</li>
+                <li>Generate dan cetak label barcode produk, serta import data produk dari CSV</li>
+                <li>Log aktivitas kasir yang bisa dipantau oleh owner</li>
+              </ul>
+              <h4>TEKNOLOGI</h4>
+              <ul>
+                <li>Flutter (Dart), sekitar 30.000 baris kode</li>
+                <li>Firebase Authentication &amp; Cloud Firestore (real-time, Security Rules berbasis peran)</li>
+                <li>Bluetooth thermal printer, barcode scanner, PDF &amp; Excel export</li>
+              </ul>
+              <p class="modal-note">Source code bersifat private karena aplikasi ini digunakan langsung oleh toko.</p>
+            </template>
+          </article>
+
+          <article class="project-card reveal" style="--d: .1s" data-category="motion"
+            data-images="assets/projects/amv-remake/video.mp4"
+            data-poster="assets/projects/amv-remake/poster.jpg"
+            data-link="" data-link-label="TONTON VIDEO">
+            <div class="project-visual visual-three" aria-hidden="true"><span class="motion-ring"></span><span class="motion-core">PLAY</span><span class="visual-hint">PUTAR VIDEO</span></div>
+            <div class="project-meta"><span>MOTION</span><span>2026</span></div>
+            <h3>AMV REMAKE</h3>
+            <p>AMV anime yang aku buat ulang dari edit kreator lain menggunakan After Effects.</p>
+            <ul class="project-tags"><li>AFTER EFFECTS</li><li>AMV</li><li>REMAKE</li></ul>
+            <button type="button" class="project-link">OPEN QUEST <span aria-hidden="true">→</span></button>
+            <template class="project-detail">
+              <p>AMV (anime music video) berdurasi 37 detik yang aku <strong>buat ulang dari edit milik kreator lain</strong> sebagai latihan motion graphic di <strong>Adobe After Effects</strong>. Tantanganku adalah menyamai timing, transisi, dan suasana versi aslinya dengan menyusun ulang semuanya dari nol, keyframe demi keyframe.</p>
+              <p>Video ini memadukan panel manga hitam-putih dengan potongan anime berwarna. Setiap perpindahan dibuat sinkron dengan ketukan lagu agar emosinya terasa naik-turun bersama musik.</p>
+              <ul>
+                <li>Transisi cepat dengan motion blur, zoom, dan flash putih yang mengikuti beat</li>
+                <li>Animasi teks dan balon dialog manga (kinetic typography)</li>
+                <li>Easing halus lewat Graph Editor, masking, dan efek blur</li>
+                <li>Format 1:1 yang siap diunggah ke Instagram dan TikTok</li>
+              </ul>
+              <p class="modal-note">Ide dan konsep editing adalah milik kreator aslinya. Versi ini adalah hasil buatan ulangku untuk belajar dan mengasah skill.</p>
+            </template>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SIDE QUESTS (hobi & minat) ============ -->
+    <section id="hobby" class="section" aria-labelledby="hobby-title">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-heading"><span class="section-number">05</span><h2 id="hobby-title">SIDE QUESTS</h2><span class="heading-line"></span></div>
+          <p class="section-lead">Di luar ngoding, ini hal-hal yang bikin aku semangat dan tetap penasaran.</p>
+        </div>
+
+        <div class="hobby-grid">
+          <article class="hobby-card reveal" style="--accent: var(--pink)">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="1" y="3" width="14" height="10" fill="#17152a"/>
+                <rect x="2" y="4" width="12" height="8" fill="#f5eddf"/>
+                <rect x="3" y="5" width="4" height="5" fill="#44d9d0"/>
+                <rect x="4" y="6" width="2" height="2" fill="#ad765d"/>
+                <rect x="4" y="5" width="2" height="1" fill="#17152a"/>
+                <rect x="4" y="8" width="2" height="2" fill="#7563df"/>
+                <rect x="8" y="5" width="5" height="1" fill="#17152a"/>
+                <rect x="8" y="7" width="4" height="1" fill="#17152a"/>
+                <rect x="9" y="9" width="1" height="1" fill="#ff4f91"/><rect x="11" y="9" width="1" height="1" fill="#ff4f91"/>
+                <rect x="8" y="9" width="1" height="1" fill="#ff4f91"/><rect x="12" y="9" width="1" height="1" fill="#ff4f91"/>
+                <rect x="8" y="10" width="5" height="1" fill="#ff4f91"/>
+                <rect x="9" y="11" width="3" height="1" fill="#ff4f91"/>
+                <rect x="10" y="12" width="1" height="1" fill="#ff4f91"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">FAVORITE ANIME</p>
+            <h3>Hunter x Hunter</h3>
+            <p>Petualangan, strategi, dan persahabatan Gon &amp; Killua. Selain itu, aku juga suka anime bergenre romance.</p>
+            <ul class="hobby-tags"><li>ADVENTURE</li><li>ROMANCE</li></ul>
+          </article>
+
+          <article class="hobby-card reveal" style="--accent: var(--cyan); --d: .05s">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="6" y="2" width="4" height="1" fill="#17152a"/>
+                <rect x="4" y="3" width="8" height="1" fill="#17152a"/>
+                <rect x="3" y="4" width="10" height="8" fill="#17152a"/>
+                <rect x="4" y="12" width="8" height="1" fill="#17152a"/>
+                <rect x="6" y="13" width="4" height="1" fill="#17152a"/>
+                <rect x="6" y="3" width="4" height="1" fill="#f5eddf"/>
+                <rect x="5" y="4" width="6" height="1" fill="#f5eddf"/>
+                <rect x="4" y="5" width="8" height="6" fill="#f5eddf"/>
+                <rect x="5" y="11" width="6" height="1" fill="#f5eddf"/>
+                <rect x="6" y="12" width="4" height="1" fill="#f5eddf"/>
+                <rect x="7" y="6" width="2" height="2" fill="#17152a"/>
+                <rect x="6" y="3" width="1" height="1" fill="#17152a"/><rect x="9" y="3" width="1" height="1" fill="#17152a"/>
+                <rect x="4" y="8" width="1" height="1" fill="#17152a"/><rect x="11" y="8" width="1" height="1" fill="#17152a"/>
+                <rect x="6" y="11" width="1" height="1" fill="#17152a"/><rect x="9" y="11" width="1" height="1" fill="#17152a"/>
+                <rect x="0" y="6" width="2" height="1" fill="#44d9d0"/><rect x="0" y="9" width="2" height="1" fill="#44d9d0"/>
+                <rect x="1" y="15" width="14" height="1" fill="#6ee7a0"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">FOOTBALL</p>
+            <h3>La Liga Fan</h3>
+            <p>Suka nonton sepak bola, terutama klub-klub Spanyol. Pertandingan besar selalu masuk jadwal.</p>
+            <ul class="hobby-tags"><li>SEPAK BOLA</li><li>SPANYOL</li></ul>
+          </article>
+
+          <article class="hobby-card reveal" style="--accent: var(--yellow); --d: .1s">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="5" y="2" width="8" height="2" fill="#17152a"/>
+                <rect x="5" y="4" width="1" height="7" fill="#17152a"/>
+                <rect x="12" y="4" width="1" height="6" fill="#17152a"/>
+                <rect x="2" y="10" width="4" height="3" fill="#ff4f91"/>
+                <rect x="3" y="13" width="2" height="1" fill="#ff4f91"/>
+                <rect x="3" y="9" width="2" height="1" fill="#ff4f91"/>
+                <rect x="9" y="9" width="4" height="3" fill="#ff4f91"/>
+                <rect x="10" y="12" width="2" height="1" fill="#ff4f91"/>
+                <rect x="10" y="8" width="2" height="1" fill="#ff4f91"/>
+                <rect x="3" y="10" width="1" height="1" fill="#f5eddf"/><rect x="10" y="9" width="1" height="1" fill="#f5eddf"/>
+                <rect x="14" y="1" width="1" height="1" fill="#ffd166"/><rect x="1" y="4" width="1" height="1" fill="#44d9d0"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">NOW LISTENING</p>
+            <h3>Suiheisen</h3>
+            <p>back number · 水平線. Lagu yang lagi sering kuputar, sekaligus jadi musik latar website ini.</p>
+            <button class="hobby-play" type="button" data-play-music><span aria-hidden="true">▶</span> PUTAR LAGU</button>
+          </article>
+
+          <article class="hobby-card reveal" style="--accent: var(--violet); --d: .15s">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="1" y="1" width="1" height="9" fill="#17152a"/>
+                <rect x="2" y="1" width="9" height="6" fill="#17152a"/>
+                <rect x="3" y="2" width="7" height="4" fill="#f5eddf"/>
+                <rect x="5" y="3" width="3" height="2" fill="#e8364f"/>
+                <rect x="6" y="2" width="1" height="1" fill="#e8364f"/><rect x="6" y="5" width="1" height="1" fill="#e8364f"/>
+                <rect x="5" y="7" width="1" height="9" fill="#17152a"/>
+                <rect x="6" y="7" width="9" height="6" fill="#17152a"/>
+                <rect x="7" y="8" width="7" height="1" fill="#e8364f"/>
+                <rect x="7" y="9" width="7" height="2" fill="#ffd166"/>
+                <rect x="7" y="11" width="7" height="1" fill="#e8364f"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">FAVORITE COUNTRIES</p>
+            <h3>Jepang &amp; Spanyol</h3>
+            <p>Dua negara yang paling ingin kujelajahi: satu rumahnya anime, satu lagi rumahnya sepak bola.</p>
+            <ul class="hobby-tags"><li>JAPAN</li><li>SPAIN</li></ul>
+          </article>
+
+          <article class="hobby-card hobby-card-wide reveal" style="--accent: var(--yellow)">
+            <div class="hobby-art hobby-art-wide" aria-hidden="true">
+              <svg viewBox="0 0 32 16" shape-rendering="crispEdges">
+                <rect x="1" y="2" width="13" height="2" fill="#e8364f"/>
+                <rect x="0" y="2" width="1" height="1" fill="#e8364f"/><rect x="14" y="2" width="1" height="1" fill="#e8364f"/>
+                <rect x="2" y="4" width="11" height="1" fill="#17152a"/>
+                <rect x="3" y="6" width="9" height="1" fill="#e8364f"/>
+                <rect x="4" y="4" width="2" height="12" fill="#e8364f"/>
+                <rect x="9" y="4" width="2" height="12" fill="#e8364f"/>
+                <rect x="13" y="12" width="1" height="1" fill="#ffd166"/><rect x="15" y="11" width="1" height="1" fill="#ffd166"/>
+                <rect x="17" y="12" width="1" height="1" fill="#ffd166"/>
+                <rect x="15" y="8" width="1" height="1" fill="#ffd166"/><rect x="14" y="9" width="3" height="1" fill="#ffd166"/><rect x="15" y="10" width="1" height="1" fill="#ffd166"/>
+                <rect x="19" y="2" width="1" height="7" fill="#17152a"/><rect x="18" y="1" width="3" height="2" fill="#ffd166"/>
+                <rect x="30" y="2" width="1" height="7" fill="#17152a"/><rect x="29" y="1" width="3" height="2" fill="#ffd166"/>
+                <rect x="20" y="8" width="10" height="1" fill="#17152a"/>
+                <rect x="19" y="9" width="12" height="7" fill="#3d4a85"/>
+                <rect x="19" y="9" width="12" height="1" fill="#44d9d0"/>
+                <rect x="20" y="11" width="10" height="1" fill="#ff4f91"/>
+                <rect x="21" y="13" width="8" height="3" fill="#6ee7a0"/>
+                <rect x="25" y="13" width="1" height="3" fill="#f5eddf"/>
+              </svg>
+            </div>
+            <div class="hobby-body">
+              <p class="hobby-kicker">MAIN QUEST · DREAM</p>
+              <h3>Anime Pilgrimage &amp; Camp Nou</h3>
+              <p>Impian terbesarku: mengunjungi tempat-tempat nyata yang muncul di anime, lalu menonton langsung di Camp Nou.</p>
+              <ul class="quest-log">
+                <li><span class="quest-box" aria-hidden="true"></span>Jelajahi lokasi anime di Jepang</li>
+                <li><span class="quest-box" aria-hidden="true"></span>Nonton pertandingan di Camp Nou</li>
+              </ul>
+              <div class="quest-progress"><span>QUEST PROGRESS</span><span class="quest-bar" aria-hidden="true"><i></i></span><span>SAVING EXP...</span></div>
+            </div>
+          </article>
+
+          <article class="hobby-card reveal" style="--accent: var(--pink); --d: .05s">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="11" y="0" width="5" height="1" fill="#17152a"/><rect x="12" y="1" width="3" height="1" fill="#ffd166"/>
+                <rect x="13" y="2" width="1" height="1" fill="#ffd166"/><rect x="12" y="3" width="3" height="1" fill="#ffd166"/>
+                <rect x="11" y="4" width="5" height="1" fill="#17152a"/>
+                <rect x="2" y="6" width="12" height="6" fill="#17152a"/>
+                <rect x="1" y="8" width="1" height="5" fill="#17152a"/><rect x="14" y="8" width="1" height="5" fill="#17152a"/>
+                <rect x="2" y="12" width="3" height="1" fill="#17152a"/><rect x="11" y="12" width="3" height="1" fill="#17152a"/>
+                <rect x="3" y="8" width="3" height="1" fill="#f5eddf"/><rect x="4" y="7" width="1" height="3" fill="#f5eddf"/>
+                <rect x="10" y="7" width="1" height="1" fill="#ff4f91"/><rect x="12" y="8" width="1" height="1" fill="#44d9d0"/>
+                <rect x="10" y="9" width="1" height="1" fill="#ffd166"/><rect x="8" y="8" width="1" height="1" fill="#7563df"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">GAMING</p>
+            <h3>Story Games</h3>
+            <p>Paling suka game dengan cerita yang kuat. Tapi tetap tahu batas waktu, karena tanggung jawab tetap nomor satu.</p>
+            <ul class="hobby-tags"><li>STORY</li><li>SECUKUPNYA</li></ul>
+          </article>
+
+          <article class="hobby-card reveal" style="--accent: var(--cyan); --d: .1s">
+            <div class="hobby-art" aria-hidden="true">
+              <svg viewBox="0 0 16 16" shape-rendering="crispEdges">
+                <rect x="6" y="0" width="1" height="1" fill="#ff4f91"/><rect x="9" y="0" width="1" height="1" fill="#ff4f91"/>
+                <rect x="6" y="1" width="4" height="1" fill="#ff4f91"/><rect x="7" y="2" width="2" height="1" fill="#ff4f91"/>
+                <rect x="2" y="4" width="5" height="1" fill="#17152a"/><rect x="9" y="4" width="5" height="1" fill="#17152a"/>
+                <rect x="2" y="5" width="5" height="3" fill="#ad765d"/><rect x="9" y="5" width="5" height="3" fill="#ad765d"/>
+                <rect x="3" y="6" width="1" height="1" fill="#17152a"/><rect x="5" y="6" width="1" height="1" fill="#17152a"/>
+                <rect x="10" y="6" width="1" height="1" fill="#17152a"/><rect x="12" y="6" width="1" height="1" fill="#17152a"/>
+                <rect x="1" y="9" width="7" height="6" fill="#44d9d0"/><rect x="8" y="9" width="7" height="6" fill="#ff4f91"/>
+                <rect x="6" y="11" width="4" height="2" fill="#ad765d"/>
+              </svg>
+            </div>
+            <p class="hobby-kicker">PARTY SKILLS</p>
+            <h3>Team Player</h3>
+            <p>Senang bekerja sama dalam tim dan bisa jadi pendengar yang baik, karena ide terbaik sering lahir dari mendengarkan.</p>
+            <ul class="hobby-tags"><li>KERJA SAMA</li><li>PENDENGAR</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="shell contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow"><span class="blink-dot" aria-hidden="true"></span> CONNECTION REQUEST</p>
+          <h2 id="contact-title">PUNYA CERITA<br />UNTUK <span class="pink-text">DIBUAT?</span></h2>
+          <p>Kirim sinyal lewat email atau WhatsApp. Biasanya aku membalas dalam 1–2 hari sambil ditemani playlist pop Jepang.</p>
+          <div class="contact-actions">
+            <div class="email-wrap">
+              <button class="pixel-button email-toggle" type="button" aria-expanded="false" aria-controls="email-chooser">KIRIM EMAIL <span aria-hidden="true">▼</span></button>
+              <div class="email-chooser" id="email-chooser" hidden>
+                <p class="chooser-title">KIRIM KE MANA?</p>
+                <div class="email-option">
+                  <span class="email-badge is-gmail" aria-hidden="true">G</span>
+                  <div class="email-info"><strong>GMAIL</strong><span>rzainurtanto2005@gmail.com</span></div>
+                  <div class="email-buttons">
+                    <a class="email-send" href="mailto:rzainurtanto2005@gmail.com?subject=Halo%20Rzainurtanto%20-%20dari%20portofolio">KIRIM</a>
+                    <button class="email-copy" type="button" data-copy="rzainurtanto2005@gmail.com">SALIN</button>
+                  </div>
+                </div>
+                <div class="email-option">
+                  <span class="email-badge is-pens" aria-hidden="true">P</span>
+                  <div class="email-info"><strong>EMAIL KAMPUS (PENS)</strong><span>rzainurtanto@met.student.pens.ac.id</span></div>
+                  <div class="email-buttons">
+                    <a class="email-send" href="mailto:rzainurtanto@met.student.pens.ac.id?subject=Halo%20Rzainurtanto%20-%20dari%20portofolio">KIRIM</a>
+                    <button class="email-copy" type="button" data-copy="rzainurtanto@met.student.pens.ac.id">SALIN</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="pixel-button wa-button" href="https://wa.me/6281331777703?text=Halo%20Rzainurtanto%2C%20saya%20sudah%20melihat%20portofolio%20kamu%20dan%20ingin%20berdiskusi." target="_blank" rel="noopener noreferrer"><svg class="btn-icon" aria-hidden="true"><use href="#ico-whatsapp"/></svg> CHAT WHATSAPP</a>
+          </div>
+
+          <p class="socials-title">ATAU TEMUKAN AKU DI</p>
+          <ul class="socials">
+            <li><a class="social-link" href="https://www.instagram.com/zains.k4nn4o/" target="_blank" rel="noopener noreferrer"><span class="social-icon is-ig"><svg aria-hidden="true"><use href="#ico-instagram"/></svg></span><span class="social-text"><strong>INSTAGRAM</strong><small>@zains.k4nn4o</small></span></a></li>
+            <li><a class="social-link" href="https://www.youtube.com/@OtsuZain1140" target="_blank" rel="noopener noreferrer"><span class="social-icon is-yt"><svg aria-hidden="true"><use href="#ico-youtube"/></svg></span><span class="social-text"><strong>YOUTUBE</strong><small>@OtsuZain1140</small></span></a></li>
+            <li><a class="social-link" href="https://www.tiktok.com/@k4nn4o_" target="_blank" rel="noopener noreferrer"><span class="social-icon is-tt"><svg aria-hidden="true"><use href="#ico-tiktok"/></svg></span><span class="social-text"><strong>TIKTOK</strong><small>@k4nn4o_</small></span></a></li>
+            <li><a class="social-link" href="https://wa.me/6281331777703" target="_blank" rel="noopener noreferrer"><span class="social-icon is-wa"><svg aria-hidden="true"><use href="#ico-whatsapp"/></svg></span><span class="social-text"><strong>WHATSAPP</strong><small>0813-3177-7703</small></span></a></li>
+          </ul>
+        </div>
+
+        <div class="contact-console reveal" style="--d: .15s" aria-hidden="true">
+          <div class="console-top"><span>COMMS_TERMINAL</span><span class="rec"><b aria-hidden="true">●</b> REC</span></div>
+          <div class="console-body">
+            <p><span class="console-prompt">rzainurtanto@studio:~$</span> <span data-type>ping rzainurtanto2005@gmail.com</span></p>
+            <p class="console-muted" data-type>&gt; connecting to studio... OK</p>
+            <p class="console-muted" data-type>&gt; latency: 1–2 hari</p>
+            <p class="console-success" data-type>&gt; response: ready to create</p>
+            <span class="console-cursor">█</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year">2026</span> RZAINURTANTO</span>
+      <span>BUILT WITH <span class="pink-text">✦</span> &amp; TOO MUCH COFFEE</span>
+      <ul class="footer-socials" aria-label="Media sosial">
+        <li><a class="social-icon is-ig" href="https://www.instagram.com/zains.k4nn4o/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg aria-hidden="true"><use href="#ico-instagram"/></svg></a></li>
+        <li><a class="social-icon is-yt" href="https://www.youtube.com/@OtsuZain1140" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg aria-hidden="true"><use href="#ico-youtube"/></svg></a></li>
+        <li><a class="social-icon is-tt" href="https://www.tiktok.com/@k4nn4o_" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg aria-hidden="true"><use href="#ico-tiktok"/></svg></a></li>
+        <li><a class="social-icon is-wa" href="https://wa.me/6281331777703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#ico-whatsapp"/></svg></a></li>
+      </ul>
+      <a class="back-to-top" href="#home">BACK TO TOP <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <!-- Logo media sosial versi pixel (dipakai ulang lewat <use>) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <g id="tt-note">
+        <rect x="6" y="1" width="2" height="9"/>
+        <rect x="8" y="2" width="2" height="2"/><rect x="10" y="3" width="1" height="2"/>
+        <rect x="3" y="7" width="3" height="1"/><rect x="2" y="8" width="4" height="2"/><rect x="3" y="10" width="4" height="1"/>
+      </g>
+    </defs>
+    <symbol id="ico-instagram" viewBox="0 0 12 12" shape-rendering="crispEdges">
+      <g fill="currentColor">
+        <rect x="2" y="1" width="8" height="1"/><rect x="2" y="10" width="8" height="1"/>
+        <rect x="1" y="2" width="1" height="8"/><rect x="10" y="2" width="1" height="8"/>
+        <rect x="5" y="3" width="2" height="1"/><rect x="5" y="8" width="2" height="1"/>
+        <rect x="3" y="5" width="1" height="2"/><rect x="8" y="5" width="1" height="2"/>
+        <rect x="4" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/>
+        <rect x="4" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/>
+        <rect x="8" y="2" width="1" height="1"/>
+      </g>
+    </symbol>
+    <symbol id="ico-youtube" viewBox="0 0 12 12" shape-rendering="crispEdges">
+      <g fill="currentColor"><rect x="1" y="3" width="10" height="6"/><rect x="2" y="2" width="8" height="1"/><rect x="2" y="9" width="8" height="1"/></g>
+      <g fill="#ff0033"><rect x="5" y="4" width="1" height="4"/><rect x="6" y="5" width="1" height="2"/></g>
+    </symbol>
+    <symbol id="ico-tiktok" viewBox="0 0 12 12" shape-rendering="crispEdges">
+      <use href="#tt-note" fill="#25f4ee" transform="translate(-1 0)"/>
+      <use href="#tt-note" fill="#fe2c55" transform="translate(1 1)"/>
+      <use href="#tt-note" fill="#ffffff"/>
+    </symbol>
+    <symbol id="ico-whatsapp" viewBox="0 0 12 12" shape-rendering="crispEdges">
+      <g fill="currentColor">
+        <rect x="4" y="1" width="4" height="1"/><rect x="2" y="2" width="2" height="1"/><rect x="8" y="2" width="2" height="1"/>
+        <rect x="1" y="3" width="1" height="6"/><rect x="10" y="3" width="1" height="6"/>
+        <rect x="8" y="9" width="2" height="1"/><rect x="1" y="9" width="1" height="2"/><rect x="2" y="10" width="6" height="1"/>
+        <rect x="3" y="4" width="2" height="2"/><rect x="4" y="6" width="2" height="1"/><rect x="5" y="7" width="2" height="1"/><rect x="7" y="6" width="2" height="2"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ============ DETAIL PROJECT (modal) ============ -->
+  <dialog class="quest-modal" id="quest-modal" aria-labelledby="modal-title">
+    <div class="modal-bar">
+      <span><span class="blink-dot" aria-hidden="true"></span> QUEST_DETAIL.EXE</span>
+      <button class="modal-close" type="button" aria-label="Tutup detail project">X</button>
+    </div>
+    <div class="modal-body">
+      <div class="gallery">
+        <div class="gallery-main">
+          <img class="gallery-img" alt="" />
+          <video class="gallery-video" controls playsinline preload="metadata" hidden></video>
+          <div class="gallery-empty" hidden>
+            <strong>NO SIGNAL</strong>
+            <small>Foto segera ditambahkan</small>
+          </div>
+          <button class="gallery-nav prev" type="button" aria-label="Foto sebelumnya">&lt;</button>
+          <button class="gallery-nav next" type="button" aria-label="Foto berikutnya">&gt;</button>
+          <span class="gallery-count" aria-live="polite"></span>
+        </div>
+        <div class="gallery-thumbs" role="group" aria-label="Pilih foto"></div>
+      </div>
+
+      <div class="modal-info">
+        <div class="project-meta"><span class="modal-category"></span><span class="modal-year"></span></div>
+        <h2 id="modal-title"></h2>
+        <div class="modal-desc"></div>
+        <ul class="project-tags modal-tags"></ul>
+        <div class="modal-actions">
+          <a class="pixel-button modal-link" href="#" target="_blank" rel="noopener noreferrer"><span class="link-label">KUNJUNGI PROJECT</span> <span aria-hidden="true">→</span></a>
+          <a class="pixel-button ghost modal-link-alt" href="#" target="_blank" rel="noopener noreferrer"><span class="link-label">TONTON DEMO</span> <span aria-hidden="true">▶</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <div class="now-playing" role="status" aria-live="polite">
+    <span class="music-disc" aria-hidden="true"></span>
+    <div>
+      <small>NOW PLAYING</small>
+      <strong class="np-title"></strong>
+      <span class="np-artist"></span>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
