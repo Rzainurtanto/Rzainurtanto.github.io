@@ -1206,6 +1206,10 @@ h1, h2, h3 { font-weight: 400; }
 .social-icon.is-yt { background: #ff0033; }
 .social-icon.is-tt { background: #111; }
 .social-icon.is-wa { background: #25d366; }
+.social-icon.is-gh { background: #24292f; }
+.socials li.is-featured { grid-column: 1 / -1; }
+.socials li.is-featured .social-link { box-shadow: 3px 3px 0 var(--violet); }
+.socials li.is-featured .social-link:hover { box-shadow: 5px 5px 0 var(--pink); }
 
 .footer-socials { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .footer-socials .social-icon { width: 30px; height: 30px; box-shadow: 2px 2px 0 var(--night); transition: transform .12s steps(2); }
