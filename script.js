@@ -188,6 +188,8 @@
     } else if (slide.video) {
       galleryImg.hidden = true;
       galleryMain.classList.remove('is-landscape');
+      // Video lebar (16:9) juga pakai galeri yang lebih pendek
+      galleryVideo.onloadedmetadata = () => galleryMain.classList.toggle('is-landscape', galleryVideo.videoWidth > galleryVideo.videoHeight * 1.2);
       galleryVideo.onerror = showEmpty;
       galleryVideo.hidden = false;
       galleryVideo.poster = slide.poster || '';

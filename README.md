@@ -17,7 +17,8 @@ porto/
 │       ├── stickerkit/     01-upload.jpg ... 09-hasil-gif.jpg + poster.jpg
 │       ├── pensight/       01-menu.jpg ... 05-proses-pengerjaan.jpg + poster.jpg
 │       ├── jejaknusa/      01-beranda.jpg ... 08-galeri.jpg + poster.jpg
-│       └── amv-remake/     video.mp4 + poster.jpg
+│       ├── amv-remake/     video.mp4 + poster.jpg
+│       └── toleransi/      video.mp4 (animasi 2D, 720p) + poster.jpg
 │
 ├── thumbnails/           Desain thumbnail (poster.jpg) tiap project, dalam bentuk HTML
 ├── originals/            File asli/mentah (screenshot, video belum dikompres)
