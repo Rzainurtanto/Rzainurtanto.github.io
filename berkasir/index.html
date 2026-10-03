@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berkasir: Studi Kasus · Rzainurtanto</title>
+  <meta name="description" content="Studi kasus Berkasir, aplikasi kasir Android (Flutter & Firebase) yang dipakai di toko Tabreez Mart." />
+  <meta name="author" content="Rzainurtanto" />
+  <meta name="theme-color" content="#f4efe6" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Berkasir: Studi Kasus · Rzainurtanto" />
+  <meta property="og:description" content="Aplikasi kasir Android untuk menggantikan pencatatan manual di toko Tabreez Mart." />
+  <meta property="og:image" content="../assets/projects/berkasir/poster.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%2313263b'/%3E%3Cpath fill='%23e8743b' d='M3 1h2v2h2v2H5v2H3V5H1V3h2z'/%3E%3C/svg%3E" />
+
+  <!-- Terapkan tema sebelum render agar tidak berkedip -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.replace('no-js', 'js');
+      try {
+        var theme = localStorage.getItem('theme');
+        if (!theme) theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../case.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../" aria-label="Rzainurtanto, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">✦</span> RZAINURTANTO
+      </a>
+      <a class="case-back" href="../#work"><span aria-hidden="true">←</span> <span class="case-back-long">SEMUA </span>PROJECT</a>
+      <div class="topbar-actions">
+        <button class="icon-button theme-toggle" type="button" aria-pressed="false" aria-label="Aktifkan mode gelap">
+          <span aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="case">
+    <!-- ============ JUDUL ============ -->
+    <section class="case-intro shell">
+      <p class="eyebrow"><span class="blink-dot" aria-hidden="true"></span> STUDI KASUS · ANDROID</p>
+      <h1>BERKASIR</h1>
+      <p class="case-lead">Aplikasi kasir Android yang aku buat untuk toko <strong>Tabreez Mart</strong>, supaya penjualan, stok barang, dan laba rugi tidak perlu dicatat manual lagi.</p>
+
+      <dl class="case-facts">
+        <div><dt>PERAN</dt><dd>Full Stack Developer</dd></div>
+        <div><dt>TAHUN</dt><dd>2026</dd></div>
+        <div><dt>PLATFORM</dt><dd>Android (2 aplikasi)</dd></div>
+        <div><dt>TEKNOLOGI</dt><dd>Flutter, Firebase</dd></div>
+        <div><dt>STATUS</dt><dd><span class="status-dot" aria-hidden="true"></span>Dipakai di Tabreez Mart</dd></div>
+      </dl>
+
+      <figure class="case-cover">
+        <img src="../assets/projects/berkasir/poster.jpg" alt="Tampilan aplikasi Berkasir: halaman kasir dan daftar transaksi" width="1280" height="880" />
+      </figure>
+    </section>
+
+    <!-- ============ MASALAH ============ -->
+    <section class="case-block shell">
+      <h2>MASALAHNYA</h2>
+      <div class="case-text">
+        <p>Sebelum ada Berkasir, Tabreez Mart masih mencatat semuanya secara manual. Pemilik toko bercerita ke aku kalau cara ini menyusahkan, dan yang paling kasihan adalah pegawainya: mereka harus mengecek stok barang satu per satu secara manual. Laba rugi toko juga dihitung manual.</p>
+        <p>Dari situ aku membuat Berkasir, supaya transaksi, stok, dan laporan laba rugi tercatat otomatis dalam satu aplikasi, dan pegawai tidak kesusahan lagi.</p>
+      </div>
+    </section>
+
+    <!-- ============ YANG DIBUAT ============ -->
+    <section class="case-block shell">
+      <h2>YANG AKU BUAT</h2>
+      <div class="case-text">
+        <p>Dari satu codebase Flutter, aku membuat <strong>dua aplikasi</strong> yang datanya tersambung secara real-time lewat Cloud Firestore. Masing-masing punya hak akses yang berbeda.</p>
+      </div>
+
+      <div class="case-apps">
+        <article class="case-app">
+          <h3>BERKASIR KASIR</h3>
+          <p>Untuk pegawai di meja kasir.</p>
+          <ul>
+            <li>Login dengan PIN, multi-akun, ganti shift &amp; tutup toko</li>
+            <li>Transaksi: cari produk, filter kategori, scan barcode dengan kamera</li>
+            <li>Cetak struk ke printer thermal Bluetooth atau kirim lewat WhatsApp</li>
+            <li>Retur pembeli dan harga khusus per pelanggan</li>
+          </ul>
+        </article>
+        <article class="case-app">
+          <h3>BERKASIR OWNER</h3>
+          <p>Untuk pemilik toko.</p>
+          <ul>
+            <li>Laporan transaksi, stok, dan laba rugi (ekspor PDF &amp; Excel)</li>
+            <li>Faktur pembelian supplier, stock opname, retur ke supplier</li>
+            <li>Label barcode produk dan import data produk dari CSV</li>
+            <li>Log aktivitas kasir</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="case-screens" role="list" aria-label="Screenshot aplikasi Berkasir">
+        <figure role="listitem"><img src="../assets/projects/berkasir/02-pilih-kasir.jpg" alt="Halaman pilih akun kasir" loading="lazy" width="768" height="1600" /><figcaption>Pilih kasir</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/03-login.jpg" alt="Halaman login dengan PIN" loading="lazy" width="750" height="1600" /><figcaption>Login PIN</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/04-dashboard.jpg" alt="Dashboard kasir" loading="lazy" width="754" height="1600" /><figcaption>Dashboard</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/05-transaksi.jpg" alt="Halaman transaksi" loading="lazy" width="756" height="1600" /><figcaption>Transaksi</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/06-riwayat.jpg" alt="Riwayat transaksi" loading="lazy" width="750" height="1600" /><figcaption>Riwayat</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/07-pelanggan.jpg" alt="Data pelanggan" loading="lazy" width="746" height="1600" /><figcaption>Pelanggan</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/berkasir/08-laporan.jpg" alt="Laporan toko" loading="lazy" width="752" height="1600" /><figcaption>Laporan</figcaption></figure>
+      </div>
+      <p class="case-hint">Geser untuk melihat semua layar →</p>
+    </section>
+
+    <!-- ============ TERSULIT ============ -->
+    <section class="case-block shell">
+      <h2>BAGIAN TERSULIT: PRINTER STRUK</h2>
+      <div class="case-text">
+        <p>Bagian yang paling bikin pusing adalah menyambungkan aplikasi ke <strong>printer thermal Bluetooth</strong> untuk mencetak struk. Sudah beberapa kali aku perbaiki, tapi hasilnya selalu error.</p>
+        <p>Akhirnya aku mencari pengganti: library printer thermal versi lain yang cocok dengan printernya. Setelah diganti, printernya bisa tersambung dan mencetak struk dari aplikasi.</p>
+      </div>
+    </section>
+
+    <!-- ============ PELAJARAN ============ -->
+    <section class="case-block shell">
+      <h2>YANG AKU PELAJARI</h2>
+      <div class="case-text">
+        <p>Banyak error baru muncul setelah aplikasinya dipakai sungguhan di toko. Kalau mengerjakan ulang, aku akan menyelesaikan fitur <strong>satu per satu sampai benar-benar beres</strong>. Contohnya fitur transaksi: aku tuntaskan dan uji sampai tidak ada error, baru pindah ke fitur berikutnya.</p>
+        <p class="modal-note">Source code bersifat private karena aplikasi ini digunakan langsung oleh toko.</p>
+      </div>
+    </section>
+
+    <!-- ============ PENUTUP ============ -->
+    <section class="case-end shell">
+      <a class="pixel-button" href="../#work"><span aria-hidden="true">←</span> PROJECT LAINNYA</a>
+      <a class="pixel-button ghost" href="../#contact">HUBUNGI AKU</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year">2026</span> RZAINURTANTO</span>
+      <span>DIBUAT DENGAN HTML, CSS &amp; JAVASCRIPT</span>
+      <a class="back-to-top" href="#main">KE ATAS <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="../case.js"></script>
+</body>
+</html>

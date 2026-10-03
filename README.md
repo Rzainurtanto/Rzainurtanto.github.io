@@ -69,3 +69,14 @@ Semua warna utama diatur di bagian atas `style.css` (`:root`). Ganti nilainya di
 
 Mode gelap diatur di blok `:root[data-theme="dark"]`. Warna langit ilustrasi (pagi/siang/sore/malam) ada di bagian "Hero art".
 Thumbnail di folder `thumbnails/` memakai variabel yang sama. Setelah warnanya diubah, render ulang thumbnail-nya menjadi `assets/projects/<nama>/poster.jpg` (ukuran 1280×880).
+
+## Halaman studi kasus
+
+Setiap project bisa punya halaman sendiri, misalnya `berkasir/index.html` → **rzainurtanto.github.io/berkasir/**.
+
+- Tampilannya memakai `style.css` + `case.css`, dan tombol tema memakai `case.js`.
+- Untuk project baru: salin folder `berkasir/`, ganti nama foldernya (misalnya `pensight/`), lalu ubah teks dan gambarnya. Path gambar diawali `../assets/...`.
+- Sambungkan dari halaman utama dengan mengisi `data-link="pensight/"` dan `data-link-label="BACA STUDI KASUS"` pada kartu project.
+- Isi yang paling penting: masalahnya apa, apa yang kamu buat, bagian tersulit, dan yang kamu pelajari.
+
+Catatan: link folder seperti `berkasir/` hanya terbuka benar lewat Live Server atau setelah online, bukan saat membuka file HTML langsung dari folder.

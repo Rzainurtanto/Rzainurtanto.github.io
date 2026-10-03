@@ -116,6 +116,7 @@
   const filters = $$('.filter');
   const cards = $$('.project-card');
   const filterStatus = $('#filter-status');
+  const projectGrid = $('.project-grid');
 
   filters.forEach((button) => {
     button.addEventListener('click', () => {
@@ -140,6 +141,7 @@
       });
 
       filterStatus.textContent = `Menampilkan ${shown} project`;
+      projectGrid.classList.toggle('is-filtered', filter !== 'all');
     });
   });
 
@@ -262,6 +264,8 @@
     modalLink.hidden = !link;
     if (link) {
       modalLink.href = link;
+      // Link ke halaman di website ini (mis. studi kasus) dibuka di tab yang sama
+      modalLink.target = /^https?:/.test(link) ? '_blank' : '';
       $('.link-label', modalLink).textContent = card.dataset.linkLabel || 'KUNJUNGI PROJECT';
     }
 
