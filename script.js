@@ -24,8 +24,20 @@
 
   themeToggle.addEventListener('click', () => {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    try { localStorage.setItem('theme', next); } catch (e) { /* storage tidak tersedia */ }
+    const commit = () => {
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* storage tidak tersedia */ }
+    };
+    // Malam "turun" dari atas, pagi "naik" dari bawah (kalau browser mendukung)
+    if (!document.startViewTransition || reduceMotion) { commit(); return; }
+    root.dataset.themeShift = next === 'dark' ? 'to-dark' : 'to-light';
+    // Pengaman: kalau transisi tidak berjalan, tema tetap berganti
+    let applied = false;
+    const run = () => { if (!applied) { applied = true; commit(); } };
+    setTimeout(() => { run(); delete root.dataset.themeShift; }, 600);
+    const transition = document.startViewTransition(run);
+    transition.ready.catch(() => {}); // transisi bisa dilewati kalau tombol diklik cepat berturut-turut
+    transition.finished.catch(() => {}).finally(() => { delete root.dataset.themeShift; });
   });
 
   /* ---------- Menu mobile ---------- */
@@ -416,6 +428,7 @@
     { pose: '', duration: 3200, text: () => (currentTime === 'night' ? ['SSST...', 'MEREKA TIDUR'] : ['SALAM', 'KENAL!']) }
   ];
   let sceneIndex = 0;
+  let quietUntil = 0; // setelah dicolek, balon reaksi tidak langsung ditimpa
 
   const say = ([lineOne, lineTwo]) => {
     speechBubble.classList.remove('bubble-swap');
@@ -432,12 +445,77 @@
       void character.offsetWidth; // agar animasi lambaian bisa diulang
       character.classList.add(scene.pose);
     }
-    if (!document.hidden) say(typeof scene.text === 'function' ? scene.text() : scene.text);
+    if (!document.hidden && Date.now() > quietUntil) say(typeof scene.text === 'function' ? scene.text() : scene.text);
     sceneIndex = (sceneIndex + 1) % idleScenes.length;
     setTimeout(playScene, scene.duration);
   };
 
   playScene();
+
+  /* ---------- Colek Zain, teman kecil, dan matahari/bulan ---------- */
+  const pokeLines = [
+    ['EH!', 'GELI TAU'],
+    ['IYA IYA,', 'AKU KERJA'],
+    ['JANGAN', 'DICOLEK!'],
+    ['LIHAT', 'PROJECTKU!'],
+    ['LAGI', 'COMPILE...'],
+    ['HAHA,', 'SAKIT TAU']
+  ];
+  let pokeCount = 0;
+
+  const restartClass = (el, className) => {
+    el.classList.remove(className);
+    void el.offsetWidth; // agar animasinya bisa diulang
+    el.classList.add(className);
+  };
+
+  const poke = () => {
+    pokeCount += 1;
+    quietUntil = Date.now() + 2600;
+    say(pokeCount % 7 === 0 ? ['OKE OKE,', 'AKU NYERAH'] : pokeLines[(pokeCount - 1) % pokeLines.length]);
+    if (!reduceMotion) restartClass(character, 'is-poked');
+  };
+  character.addEventListener('click', poke);
+  character.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      poke();
+    }
+  });
+  character.addEventListener('animationend', (event) => {
+    if (event.animationName === 'poke-hop') character.classList.remove('is-poked');
+  });
+
+  $$('.buddy').forEach((buddy) => {
+    buddy.addEventListener('click', () => {
+      if (!reduceMotion) restartClass(buddy, 'is-hopping');
+      const heart = document.createElement('span');
+      heart.className = 'pixel-heart';
+      buddy.appendChild(heart);
+      setTimeout(() => heart.remove(), 1100);
+    });
+    buddy.addEventListener('animationend', (event) => {
+      if (event.animationName === 'buddy-hop') buddy.classList.remove('is-hopping');
+    });
+  });
+
+  // Matahari/bulan bisa diklik untuk ganti waktu, sama seperti jam di pojok
+  $('.moon').addEventListener('click', () => hudTime.click());
+
+  /* ---------- Garis cakrawala tergambar saat bagiannya terlihat ---------- */
+  const horizons = $$('.section, .site-footer');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    horizons.forEach((el) => el.classList.add('is-drawn'));
+  } else {
+    const horizonObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-drawn');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -15% 0px' });
+    horizons.forEach((el) => horizonObserver.observe(el));
+  }
 
   /* ---------- Terminal kontak (efek mengetik) ---------- */
   const consoleEl = $('.contact-console');
@@ -908,10 +986,18 @@
 
   /* ---------- Mulai dari atas saat halaman dibuka / di-refresh ---------- */
   // Hapus #bagian dari alamat (misalnya #work setelah klik menu) supaya refresh tidak lompat ke sana
+  // Kecuali datang dari halaman lain lewat link berisi #bagian (mis. "Semua project" di studi kasus)
+  const hashTarget = root.classList.contains('is-arriving') && location.hash
+    ? document.getElementById(decodeURIComponent(location.hash.slice(1)))
+    : null;
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   const scrollToTopNow = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  scrollToTopNow();
-  window.addEventListener('load', scrollToTopNow);
+  const scrollToStart = () => {
+    if (hashTarget) hashTarget.scrollIntoView({ behavior: 'instant', block: 'start' });
+    else scrollToTopNow();
+  };
+  scrollToStart();
+  window.addEventListener('load', scrollToStart);
   window.addEventListener('pageshow', (event) => { if (event.persisted) scrollToTopNow(); });
 
   /* ---------- Tahun di footer ---------- */

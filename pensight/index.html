@@ -18,6 +18,15 @@
     (function () {
       var root = document.documentElement;
       root.classList.replace('no-js', 'js');
+      // Datang dari halaman lain lewat link: tampilkan layar transisi sejak awal (lihat loader.js)
+      try {
+        var arriving = sessionStorage.getItem('page-loader');
+        if (arriving) {
+          sessionStorage.removeItem('page-loader');
+          root.classList.add('is-arriving');
+          root.dataset.loading = arriving;
+        }
+      } catch (e) {}
       try {
         var theme = localStorage.getItem('theme');
         if (!theme) theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -164,6 +173,7 @@
     </div>
   </footer>
 
+  <script src="../loader.js"></script>
   <script src="../case.js"></script>
 </body>
 </html>

@@ -30,6 +30,7 @@
   --header-bg: rgba(244, 239, 230,  .88);
   --scanline: rgba(19, 38, 59,  .05);
 
+  --paper-shadow: 0 8px 18px rgba(19, 38, 59, .12), 0 1px 2px rgba(19, 38, 59, .10);
   --horizon: linear-gradient(90deg, transparent, var(--sun) 12%, var(--gold) 38%, var(--sea) 66%, var(--tide) 88%, transparent);
 
   --font-pixel: 'Press Start 2P', 'DotGothic16', ui-monospace, monospace;
@@ -42,6 +43,7 @@
 
 :root[data-theme="dark"] {
   --tide: #7fb3d5;
+  --paper-shadow: 0 10px 22px rgba(0, 0, 0, .45), 0 1px 2px rgba(0, 0, 0, .35);
   --bg: #0e1b2a;
   --bg-alt: #132438;
   --surface: #172b42;
@@ -697,7 +699,14 @@ h1, h2, h3 { font-weight: 400; }
 /* 7. Sections -------------------------------------------------------------- */
 .section { padding-block: clamp(80px, 10vw, 128px); }
 /* Pemisah bagian: garis cakrawala saat senja (水平線), dari lagu Suiheisen */
-.section, .site-footer { border-top: 2px solid transparent; border-image: var(--horizon) 1; }
+.section, .site-footer { position: relative; }
+.section::before, .site-footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--horizon);
+  transition: transform 1.4s cubic-bezier(.2, .7, .2, 1);
+}
+/* Tergambar dari tengah ke kedua sisi saat bagiannya mulai terlihat */
+.js .section:not(.is-drawn)::before, .js .site-footer:not(.is-drawn)::before { transform: scaleX(0); }
 .section-alt { background: var(--bg-alt); }
 
 .section-head { margin-bottom: clamp(40px, 5vw, 56px); }
@@ -1053,17 +1062,37 @@ h1, h2, h3 { font-weight: 400; }
 .modal-link[hidden], .modal-link-alt[hidden] { display: none; }
 
 /* 10b. Side quests (hobi & minat) ------------------------------------------ */
-.hobby-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.hobby-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 26px; padding-top: 14px; }
 
+/* Gaya scrapbook: kertas ditempel selotip, sedikit miring */
 .hobby-card {
+  position: relative;
   display: flex; flex-direction: column;
-  padding: 20px;
+  padding: 26px 20px 20px;
   background: var(--surface);
-  border: 1px solid var(--line); border-top: 4px solid var(--accent);
-  box-shadow: none;
-  transition: transform .15s steps(2), box-shadow .15s steps(2);
+  border: 1px solid var(--line);
+  box-shadow: var(--paper-shadow);
+  rotate: var(--tilt, 0deg);
+  transition: rotate .25s ease, translate .25s ease;
 }
-.hobby-card:hover { transform: translate(-3px, -3px); box-shadow: none; }
+.hobby-card:hover { rotate: 0deg; translate: 0 -4px; }
+/* Selotip pixel dengan ujung bergerigi */
+.hobby-card::before {
+  content: ''; position: absolute; top: -13px; left: 50%; z-index: 2;
+  width: 92px; height: 26px;
+  translate: -50% 0; rotate: var(--tape, -3deg);
+  background: color-mix(in srgb, var(--accent) 60%, transparent);
+  clip-path: polygon(0 0, 100% 0, 95% 25%, 100% 50%, 95% 75%, 100% 100%, 0 100%, 5% 75%, 0 50%, 5% 25%);
+}
+.hobby-grid > .hobby-card:nth-child(1) { --tilt: -1.6deg; }
+.hobby-grid > .hobby-card:nth-child(2) { --tilt: 1.2deg; --tape: 4deg; }
+.hobby-grid > .hobby-card:nth-child(3) { --tilt: -0.8deg; --tape: -6deg; }
+.hobby-grid > .hobby-card:nth-child(4) { --tilt: 1.8deg; --tape: 2deg; }
+.hobby-grid > .hobby-card:nth-child(5) { --tilt: -0.6deg; }
+.hobby-grid > .hobby-card:nth-child(6) { --tilt: 1.4deg; --tape: 5deg; }
+.hobby-grid > .hobby-card:nth-child(7) { --tilt: -1.2deg; --tape: -2deg; }
+/* Sebagian kertas sedikit berwarna */
+.hobby-grid > .hobby-card:nth-child(3n + 2) { background: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
 .hobby-card h3 { margin: 6px 0 10px; font-family: var(--font-body); font-size: 19px; line-height: 1.5; }
 .hobby-card p { margin: 0 0 14px; font-size: 15px; color: var(--muted); }
 
@@ -1079,7 +1108,7 @@ h1, h2, h3 { font-weight: 400; }
 .hobby-card:hover .hobby-art svg { animation: hobby-bounce .4s steps(2); }
 .hobby-kicker { display: flex; align-items: center; gap: 8px; margin: 0; font-family: var(--font-body); font-size: 13px; letter-spacing: .06em; color: var(--muted); }
 .hobby-kicker::before { content: ''; flex: none; width: 8px; height: 8px; background: var(--accent); }
-.hobby-card .hobby-kicker { margin: 0; font-size: 8px; line-height: 1.6; color: var(--muted); }
+.hobby-card .hobby-kicker { margin: 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 
 .hobby-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 0; padding: 0; list-style: none; }
 .hobby-tags li { padding: 5px 8px; font-family: var(--font-body); font-size: 12px; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); }
@@ -1098,8 +1127,15 @@ h1, h2, h3 { font-weight: 400; }
 .hobby-play span { font-family: var(--font-body); font-size: 11px; }
 .hobby-play:hover { transform: translate(1px, 1px); box-shadow: none; }
 
-/* Kartu "main quest" yang lebar */
-.hobby-card-wide { grid-column: span 2; flex-direction: row; align-items: flex-start; gap: 22px; }
+/* Kartu impian yang lebar: gaya kartu pos dengan perangko */
+.hobby-card-wide { grid-column: span 2; flex-direction: row; align-items: flex-start; gap: 22px; padding-right: 124px; }
+.hobby-card-wide::after {
+  content: 'JP ✦ ES'; position: absolute; top: 18px; right: 18px;
+  padding: 14px 8px;
+  font-family: var(--font-pixel); font-size: 8px; color: var(--sun);
+  border: 2px dashed var(--sun);
+  rotate: 6deg;
+}
 .hobby-art-wide { flex: none; width: 176px; height: 96px; margin: 0; }
 .hobby-body { display: flex; flex-direction: column; min-width: 0; }
 .quest-log { display: grid; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; font-size: 15px; }
@@ -1287,6 +1323,46 @@ h1, h2, h3 { font-weight: 400; }
   }
 }
 
+
+/* Interaksi kecil -------------------------------------------------------- */
+/* Colek Zain: lompat kecil + balon dialog */
+.character { cursor: pointer; }
+.character:focus-visible { outline: 3px dashed var(--gold); outline-offset: 10px; }
+.character.is-poked { animation: character-float 3.8s ease-in-out infinite, poke-hop .55s steps(5); }
+@keyframes poke-hop { 0%, 100% { translate: 0 0; } 30% { translate: 0 -26px; } 60% { translate: 0 -6px; } 80% { translate: 0 -12px; } }
+
+/* Teman kecil: lompat + hati pixel */
+.buddy { pointer-events: auto; cursor: pointer; }
+.buddy.is-hopping svg { animation: buddy-hop .45s steps(4); }
+@keyframes buddy-hop { 50% { translate: 0 -14px; } }
+.pixel-heart {
+  position: absolute; top: -10px; left: 50%; z-index: 6;
+  width: 2px; height: 2px; margin-left: -7px;
+  box-shadow: 2px 0px var(--sun), 4px 0px var(--sun), 8px 0px var(--sun), 10px 0px var(--sun), 0px 2px var(--sun), 2px 2px var(--sun), 4px 2px var(--sun), 6px 2px var(--sun), 8px 2px var(--sun), 10px 2px var(--sun), 12px 2px var(--sun), 0px 4px var(--sun), 2px 4px var(--sun), 4px 4px var(--sun), 6px 4px var(--sun), 8px 4px var(--sun), 10px 4px var(--sun), 12px 4px var(--sun), 2px 6px var(--sun), 4px 6px var(--sun), 6px 6px var(--sun), 8px 6px var(--sun), 10px 6px var(--sun), 4px 8px var(--sun), 6px 8px var(--sun), 8px 8px var(--sun), 6px 10px var(--sun);
+  pointer-events: none;
+  animation: heart-up 1s steps(6) forwards;
+}
+@keyframes heart-up { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 0 -30px; } }
+
+/* Klik matahari / bulan untuk ganti waktu */
+.moon { cursor: pointer; }
+.moon:hover { filter: brightness(1.08); }
+
+/* Equalizer kecil di tombol putar lagu */
+.hero-eq { display: none; align-items: flex-end; gap: 2px; height: 12px; }
+.hero-eq i { display: block; width: 3px; height: 5px; background: var(--sun); animation: eq-small .5s steps(3) infinite alternate; }
+.hero-eq i:nth-child(2) { animation-delay: -.2s; }
+.hero-eq i:nth-child(3) { animation-delay: -.35s; }
+.hero-music.is-playing .hero-eq { display: inline-flex; }
+@keyframes eq-small { from { height: 3px; } to { height: 12px; } }
+
+/* Ganti tema: malam turun dari atas, pagi naik dari bawah (bertahap ala pixel) */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+:root[data-theme-shift="to-dark"]::view-transition-new(root) { animation: dusk-fall .7s steps(10) both; }
+:root[data-theme-shift="to-light"]::view-transition-new(root) { animation: dawn-rise .7s steps(10) both; }
+@keyframes dusk-fall { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes dawn-rise { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+
 /* 14. Responsive ----------------------------------------------------------- */
 @media (max-width: 960px) {
   .hobby-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1323,7 +1399,7 @@ h1, h2, h3 { font-weight: 400; }
 @media (max-width: 640px) {
   .hobby-grid { grid-template-columns: 1fr; }
   /* Kartu hobi ringkas: ilustrasi di kiri, teks di kanan */
-  .hobby-grid { gap: 16px; }
+  .hobby-grid { gap: 30px; }
   .hobby-card:not(.hobby-card-wide) { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 14px; align-items: start; padding: 16px; }
   .hobby-card:not(.hobby-card-wide) .hobby-art { grid-row: 1 / span 5; width: 64px; height: 64px; margin: 0; padding: 6px; }
   .hobby-card:not(.hobby-card-wide) > :not(.hobby-art) { grid-column: 2; }
@@ -1331,8 +1407,12 @@ h1, h2, h3 { font-weight: 400; }
   .hobby-card p { margin-bottom: 10px; font-size: 14px; }
   .hobby-tags, .hobby-play { margin-top: 0; }
   .hobby-card:not(.hobby-card-wide) .hobby-play { justify-self: start; }
-  .hobby-card-wide { grid-column: auto; flex-direction: column; }
-  .hobby-art-wide { width: 100%; max-width: 260px; height: auto; aspect-ratio: 2 / 1; }
+  .hobby-card-wide { grid-column: auto; flex-direction: column; padding-right: 20px; }
+  .hobby-card-wide::after { top: 22px; padding: 10px 6px; }
+  .hobby-grid > .hobby-card { --tilt: 0deg; }
+  .hobby-grid > .hobby-card:nth-child(odd) { --tilt: -0.6deg; }
+  .hobby-grid > .hobby-card:nth-child(even) { --tilt: 0.6deg; }
+  .hobby-art-wide { width: 100%; max-width: min(260px, calc(100% - 92px)); height: auto; aspect-ratio: 2 / 1; }
   .music-panel { position: fixed; top: calc(var(--header-h) + 10px); left: 16px; right: 16px; width: auto; }
   .now-playing { left: 12px; bottom: 12px; }
   body { font-size: 16px; }
@@ -1366,4 +1446,40 @@ h1, h2, h3 { font-weight: 400; }
   .pixel-button { padding: 15px 16px; font-size: 14px; }
   .eyebrow { font-size: 12px; }
   .character { --scale: .72; }
+}
+
+/* 15. Transisi antarhalaman ------------------------------------------------- */
+/* Matahari pixel tenggelam ke cakrawala saat pindah halaman (diatur loader.js) */
+html::before, html::after {
+  content: ''; position: fixed; z-index: 10000;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .25s steps(4), visibility 0s .25s;
+}
+html::before {
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23e8743b' d='M2 0h4v1h1v1h1v4h-1v1h-1v1h-4v-1h-1v-1h-1v-4h1v-1h1z'/%3E%3C/svg%3E") no-repeat 50% calc(52vh - 64px) / 64px 64px, var(--bg);
+}
+/* Laut: menutupi bagian matahari yang sudah tenggelam, lengkap dengan pantulan */
+html::after {
+  content: 'MENUJU ' attr(data-loading);
+  left: 0; right: 0; top: 52vh; bottom: 0; z-index: 10001;
+  padding-top: 70px; text-align: center;
+  font-family: var(--font-pixel); font-size: 10px; letter-spacing: .08em; color: var(--muted);
+  background:
+    linear-gradient(color-mix(in srgb, var(--sun) 70%, transparent) 0 0) 50% 14px / 46px 2px no-repeat,
+    linear-gradient(color-mix(in srgb, var(--sun) 45%, transparent) 0 0) 50% 24px / 28px 2px no-repeat,
+    linear-gradient(color-mix(in srgb, var(--sun) 25%, transparent) 0 0) 50% 34px / 12px 2px no-repeat,
+    var(--horizon) 0 0 / 100% 2px no-repeat,
+    var(--bg);
+}
+html.is-leaving::before, html.is-leaving::after,
+html.is-arriving::before, html.is-arriving::after {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transition: opacity .25s steps(4);
+}
+html.is-leaving::before, html.is-arriving::before { animation: sun-sink .9s steps(6) infinite alternate; }
+html.is-arriving.is-arrived::before, html.is-arriving.is-arrived::after { opacity: 0; transition: opacity .35s steps(5); }
+@keyframes sun-sink {
+  from { background-position: 50% calc(52vh - 64px), 0 0; }
+  to { background-position: 50% calc(52vh - 20px), 0 0; }
 }
