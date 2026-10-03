@@ -50,7 +50,7 @@ memuat NRP.
   `index.html?time=dawn`, `?time=day`, `?time=dusk`, atau `?time=night`.
 - Foto sebaiknya lebarnya maksimal 1600px dan ukurannya di bawah 500 KB agar website tetap cepat.
 - Musik latar: tombol equalizer di header membuka pemutar musik (play/pause + volume).
-  Lagu: `assets/audio/suiheisen-reff.dat` (file MP3 yang ekstensinya diganti `.dat` supaya tidak ditangkap IDM) (back number - 水平線, cuplikan reff 1:13–1:55; lagu penuh dan lagu lama ada di `originals/audio/`). Judul, artis, dan path lagu diatur di objek `MUSIC`
+  Lagu: `assets/audio/suiheisen-reff.dat` (file MP3 yang ekstensinya diganti `.dat` supaya tidak ditangkap IDM) (back number, 水平線, cuplikan reff dari menit 1:13 sampai 1:55; lagu penuh dan lagu lama ada di `originals/audio/`). Judul, artis, dan path lagu diatur di objek `MUSIC`
   bagian "Musik latar" pada `script.js`. Kalau file lagu tidak ada, otomatis diputar
   chiptune 8-bit bawaan. Lagu diputar otomatis (atau pada klik pertama bila browser memblokir), volume default 5% (`DEFAULT_VOLUME`).
 

@@ -219,7 +219,7 @@
       src,
       video: isVideo(src),
       poster,
-      alt: `${title} — ${isVideo(src) ? 'video' : 'foto'} ${i + 1}`
+      alt: `${title}, ${isVideo(src) ? 'video' : 'foto'} ${i + 1}`
     }));
     const multiple = slides.length > 1;
 

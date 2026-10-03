@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RZAINURTANTO — Pixel Portfolio
+   RZAINURTANTO, Pixel Portfolio
    1. Tokens   2. Base   3. Header   4. Buttons   5. Hero   6. Hero art
    7. Sections 8. About  9. Services 10. Work    11. Contact 12. Footer
    13. Motion  14. Responsive
@@ -114,7 +114,7 @@ h1, h2, h3 { font-weight: 400; }
   padding-inline: var(--gutter);
 }
 
-/* Press Start 2P tidak punya glyph panah/simbol — pakai font body agar tetap tajam */
+/* Press Start 2P tidak punya glyph panah/simbol, jadi pakai font body agar tetap tajam */
 .pixel-button [aria-hidden="true"], .project-link span, .back-to-top span, .panel-title span,
 .hud b, .rec b, .card-corner { font-family: var(--font-body); }
 
