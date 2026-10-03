@@ -53,3 +53,19 @@ memuat NRP.
   Lagu: `assets/audio/suiheisen-reff.dat` (file MP3 yang ekstensinya diganti `.dat` supaya tidak ditangkap IDM) (back number - 水平線, cuplikan reff 1:13–1:55; lagu penuh dan lagu lama ada di `originals/audio/`). Judul, artis, dan path lagu diatur di objek `MUSIC`
   bagian "Musik latar" pada `script.js`. Kalau file lagu tidak ada, otomatis diputar
   chiptune 8-bit bawaan. Lagu diputar otomatis (atau pada klik pertama bila browser memblokir), volume default 5% (`DEFAULT_VOLUME`).
+
+## Warna (palet "Suiheisen": laut & senja)
+
+Semua warna utama diatur di bagian atas `style.css` (`:root`). Ganti nilainya di sana, seluruh website ikut berubah.
+
+| Variabel  | Warna     | Dipakai untuk                                 |
+|-----------|-----------|-----------------------------------------------|
+| `--sun`   | `#e8743b` | Warna utama: judul, tombol, garis aktif       |
+| `--sea`   | `#4f93bd` | Pendamping: bayangan, label di panel gelap    |
+| `--tide`  | `#2c5f86` | Teks biru (angka statistik, label kecil)      |
+| `--gold`  | `#f2b84b` | Aksen kecil: badge, balon dialog              |
+| `--ocean` | `#13263b` | Teks & panel gelap                            |
+| `--sand`  | `#f4efe6` | Latar terang                                  |
+
+Mode gelap diatur di blok `:root[data-theme="dark"]`. Warna langit ilustrasi (pagi/siang/sore/malam) ada di bagian "Hero art".
+Thumbnail di folder `thumbnails/` memakai variabel yang sama. Setelah warnanya diubah, render ulang thumbnail-nya menjadi `assets/projects/<nama>/poster.jpg` (ukuran 1280×880).

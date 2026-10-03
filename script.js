@@ -17,7 +17,7 @@
     themeToggle.setAttribute('aria-pressed', String(isDark));
     themeToggle.setAttribute('aria-label', isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
     themeToggle.firstElementChild.textContent = isDark ? '☀' : '☾';
-    themeMeta.setAttribute('content', isDark ? '#12101f' : '#f5eddf');
+    themeMeta.setAttribute('content', isDark ? '#0e1b2a' : '#f4efe6');
   };
 
   applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
@@ -354,7 +354,7 @@
   const sceneLabel = $('.scene-label');
   const timesOfDay = {
     dawn: { name: 'PAGI', label: 'morning routine', greet: ['GOOD', 'MORNING!'] },
-    day: { name: 'SIANG', label: 'daylight quest', greet: ['HELLO,', 'WELCOME!'] },
+    day: { name: 'SIANG', label: 'daylight', greet: ['HELLO,', 'WELCOME!'] },
     dusk: { name: 'SORE', label: 'golden hour', greet: ['GOOD', 'EVENING!'] },
     night: { name: 'MALAM', label: 'night shift', greet: ['STILL UP?', 'WELCOME!'] }
   };
