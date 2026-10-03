@@ -834,8 +834,9 @@ h1, h2, h3 { font-weight: 400; }
 .featured-body { display: flex; flex-direction: column; padding-right: 8px; }
 .is-featured h3 { margin-top: 12px; font-size: clamp(18px, 2vw, 24px); }
 .is-featured .featured-body > p { font-size: 17px; }
-.featured-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: auto; }
-.featured-actions .project-link { margin-top: 0; }
+/* Tombol di kartu yang punya studi kasus */
+.card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: auto; }
+.card-actions .project-link { margin-top: 0; }
 /* Di atas lapisan klik kartu, jadi bisa diklik sendiri */
 .case-link {
   position: relative; z-index: 6;

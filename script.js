@@ -274,6 +274,7 @@
     modalLinkAlt.hidden = !altLink;
     if (altLink) {
       modalLinkAlt.href = altLink;
+      modalLinkAlt.target = /^https?:/.test(altLink) ? '_blank' : '';
       $('.link-label', modalLinkAlt).textContent = card.dataset.linkAltLabel || 'TONTON DEMO';
     }
 

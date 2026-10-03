@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PENSight: Studi Kasus · Rzainurtanto</title>
+  <meta name="description" content="Studi kasus PENSight, website AR untuk informasi ruangan kampus PENS yang berjalan langsung di browser HP." />
+  <meta name="author" content="Rzainurtanto" />
+  <meta name="theme-color" content="#f4efe6" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PENSight: Studi Kasus · Rzainurtanto" />
+  <meta property="og:description" content="Pindai tag di depan ruangan, informasi ruangan kampus PENS langsung muncul lewat AR di browser." />
+  <meta property="og:image" content="../assets/projects/pensight/poster.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%2313263b'/%3E%3Cpath fill='%23e8743b' d='M3 1h2v2h2v2H5v2H3V5H1V3h2z'/%3E%3C/svg%3E" />
+
+  <!-- Terapkan tema sebelum render agar tidak berkedip -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.replace('no-js', 'js');
+      try {
+        var theme = localStorage.getItem('theme');
+        if (!theme) theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.dataset.theme = theme;
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../case.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../" aria-label="Rzainurtanto, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">✦</span> RZAINURTANTO
+      </a>
+      <a class="case-back" href="../#work"><span aria-hidden="true">←</span> <span class="case-back-long">SEMUA </span>PROJECT</a>
+      <div class="topbar-actions">
+        <button class="icon-button theme-toggle" type="button" aria-pressed="false" aria-label="Aktifkan mode gelap">
+          <span aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="case">
+    <!-- ============ JUDUL ============ -->
+    <section class="case-intro shell">
+      <p class="eyebrow"><span class="blink-dot" aria-hidden="true"></span> STUDI KASUS · WEB AR</p>
+      <h1>PENSIGHT</h1>
+      <p class="case-lead">Website AR untuk kampus <strong>PENS</strong>: arahkan kamera HP ke tag di depan ruangan, lalu informasi ruangan itu muncul tersusun rapi. Berjalan langsung di browser, tanpa perlu menginstal aplikasi.</p>
+
+      <dl class="case-facts">
+        <div><dt>PERAN</dt><dd>Programmer</dd></div>
+        <div><dt>TIM</dt><dd>6 orang</dd></div>
+        <div><dt>TAHUN</dt><dd>2025</dd></div>
+        <div><dt>TEKNOLOGI</dt><dd>A-Frame, MindAR</dd></div>
+        <div><dt>CAKUPAN</dt><dd>23 tag, 17 lokasi</dd></div>
+      </dl>
+
+      <figure class="case-cover">
+        <img src="../assets/projects/pensight/poster.jpg" alt="Tampilan PENSight: tag ruangan dipindai dan informasi ruangan muncul di layar HP" width="1280" height="880" />
+      </figure>
+    </section>
+
+    <!-- ============ MASALAH ============ -->
+    <section class="case-block shell">
+      <h2>MASALAHNYA</h2>
+      <div class="case-text">
+        <p>Kampus PENS punya banyak ruangan, dan mahasiswa maupun pengunjung sering kebingungan: ruangan ini untuk apa, ada di mana, fasilitasnya apa saja.</p>
+        <p>Kami membuat PENSight supaya pengunjung tidak bingung lagi. Cukup memindai tag di depan ruangan dengan kamera HP, lalu informasi ruangan yang tersedia langsung tampil dan tersusun rapi.</p>
+      </div>
+    </section>
+
+    <!-- ============ YANG DIBUAT ============ -->
+    <section class="case-block shell">
+      <h2>YANG KAMI BUAT</h2>
+      <div class="case-text">
+        <p>PENSight dikerjakan oleh tim enam orang dari TRM A 2024: 1 project manager, 2 programmer, dan 3 creative, dengan bimbingan dosen pengampu. Aku salah satu dari dua <strong>programmer</strong>, mengerjakan halaman web dan sistem AR-nya.</p>
+      </div>
+
+      <div class="case-apps">
+        <article class="case-app">
+          <h3>PEMINDAI AR</h3>
+          <p>Halaman utama yang dipakai di depan ruangan.</p>
+          <ul>
+            <li>23 tag untuk 17 lokasi: lab, ruang dosen, auditorium, perpustakaan, mushola, dan lainnya</li>
+            <li>Saat tag terdeteksi, kartu info muncul melayang di atasnya</li>
+            <li>Tombol "Lihat info" membuka panel yang tetap terbaca walau kamera digeser</li>
+          </ul>
+        </article>
+        <article class="case-app">
+          <h3>HALAMAN PENDUKUNG</h3>
+          <p>Supaya pengunjung paham cara memakainya.</p>
+          <ul>
+            <li>Menu awal, penjelasan "Apa itu PENSight?", dan halaman tim</li>
+            <li>Tutorial dengan video cara menggunakan</li>
+            <li>Berjalan di browser HP tanpa instalasi</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="case-screens is-mixed" role="list" aria-label="Screenshot PENSight">
+        <figure role="listitem"><img src="../assets/projects/pensight/02-scan-marker.jpg" alt="Kamera HP memindai tag Auditorium, muncul tombol Lihat info" loading="lazy" width="720" height="1420" /><figcaption>Memindai tag</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/pensight/03-info-ruangan.jpg" alt="Panel info ruangan Auditorium" loading="lazy" width="720" height="1420" /><figcaption>Info ruangan</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/pensight/01-menu.jpg" alt="Menu awal PENSight" loading="lazy" width="850" height="822" /><figcaption>Menu awal</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/pensight/04-tentang.jpg" alt="Halaman Apa itu PENSight" loading="lazy" width="1153" height="807" /><figcaption>Apa itu PENSight?</figcaption></figure>
+        <figure role="listitem"><img src="../assets/projects/pensight/05-proses-pengerjaan.jpg" alt="Proses pengerjaan kode PENSight di komputer" loading="lazy" width="1204" height="1600" /><figcaption>Proses pengerjaan</figcaption></figure>
+      </div>
+      <p class="case-hint">Geser untuk melihat semua gambar →</p>
+    </section>
+
+    <!-- ============ TERSULIT ============ -->
+    <section class="case-block shell">
+      <h2>BAGIAN TERSULIT: MEMBUAT TAG BISA DIPINDAI</h2>
+      <div class="case-text">
+        <p>Bagian paling susah adalah membuat tag bisa dikenali kamera (tracking). Kami sudah mencoba beberapa library, tapi hasilnya tetap nihil.</p>
+        <p>Ternyata masalahnya bukan di library, tapi di <strong>foto tag-nya</strong>. Saat tag difoto biasa, tembok di belakangnya ikut terfoto. Akibatnya, titik-titik yang dilacak sistem ikut menempel di tembok, bukan di tag.</p>
+        <p>Aku mengatasinya dengan memotret tag memakai <strong>fitur scan dokumen di HP</strong>. Fitur ini otomatis memotong foto hanya pada tag-nya, tanpa latar belakang. Setelah foto itu diubah menjadi target yang bisa dipindai, titik pelacakannya hanya ada di tag, dan pemindaiannya berhasil.</p>
+      </div>
+
+      <h3 class="case-subhead">Masalah lain: gambar di kartu info</h3>
+      <div class="case-text">
+        <p>Masalah berikutnya muncul saat menambahkan foto direktur dan dosen ke kartu penjelasan: gambarnya selalu bermasalah. Aku mengatasinya lewat tag di kode A-Frame, yaitu mendaftarkan semua gambar lebih dulu di <code>&lt;a-assets&gt;</code>, lalu memanggilnya dengan id-nya di dalam AR.</p>
+      </div>
+      <pre class="case-code" aria-label="Contoh kode"><code><span class="c">&lt;!-- gambar dimuat lebih dulu --&gt;</span>
+&lt;a-assets&gt;
+  &lt;img id="tex-0903rdosen" src="scan/rdosen.png"&gt;
+&lt;/a-assets&gt;
+
+<span class="c">&lt;!-- lalu dipanggil lewat id-nya saat tag terdeteksi --&gt;</span>
+&lt;a-entity mindar-image-target="targetIndex: 3"&gt;
+  &lt;a-plane src="#tex-0903rdosen" width="1" height="0.6"&gt;&lt;/a-plane&gt;
+&lt;/a-entity&gt;</code></pre>
+    </section>
+
+    <!-- ============ PELAJARAN ============ -->
+    <section class="case-block shell">
+      <h2>YANG AKU PELAJARI</h2>
+      <div class="case-text">
+        <p>Aku belajar membuat pemindai AR di web dari nol, menggunakan VS Code dengan A-Frame dan MindAR.</p>
+        <p>Kalau mengulang, aku akan <strong>langsung memotret tag dengan jelas sejak awal</strong>, hanya tag-nya tanpa latar belakang, supaya titik pelacakannya tidak ikut menempel ke tembok.</p>
+      </div>
+    </section>
+
+    <!-- ============ PENUTUP ============ -->
+    <section class="case-end shell">
+      <a class="pixel-button" href="https://rzainurtanto.met.student.pens.ac.id/PENSIGHT/index.html" target="_blank" rel="noopener noreferrer">COBA PENSIGHT <span aria-hidden="true">↗</span></a>
+      <a class="pixel-button ghost" href="../#work"><span aria-hidden="true">←</span> PROJECT LAINNYA</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year">2026</span> RZAINURTANTO</span>
+      <span>DIBUAT DENGAN HTML, CSS &amp; JAVASCRIPT</span>
+      <a class="back-to-top" href="#main">KE ATAS <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="../case.js"></script>
+</body>
+</html>

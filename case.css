@@ -66,6 +66,19 @@
 .case-screens img { width: 100%; aspect-ratio: 9 / 19; object-fit: cover; object-position: top; border: 2px solid var(--border); box-shadow: 4px 4px 0 var(--line); }
 .case-screens figcaption { margin-top: 10px; font-family: var(--font-pixel); font-size: 8px; color: var(--muted); }
 .case-hint { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+/* Galeri campuran (screenshot tegak + mendatar): tinggi sama, lebar mengikuti gambar */
+.case-screens.is-mixed { grid-auto-columns: max-content; }
+.case-screens.is-mixed img { width: auto; height: clamp(260px, 34vw, 420px); aspect-ratio: auto; object-fit: contain; }
+
+.case-subhead { margin: 36px 0 14px; font-family: var(--font-pixel); font-size: 11px; line-height: 1.6; color: var(--tide); }
+.case-text code { padding: 1px 6px; font-family: ui-monospace, Consolas, monospace; font-size: .9em; color: var(--text); background: var(--bg-alt); border: 1px solid var(--line); }
+.case-code {
+  max-width: 760px; margin: 22px 0 0; padding: 18px 20px; overflow-x: auto;
+  font-family: ui-monospace, Consolas, monospace; font-size: 14px; line-height: 1.7;
+  color: var(--sand); background: var(--ocean);
+  border: 2px solid var(--border); box-shadow: 5px 5px 0 var(--sea);
+}
+.case-code .c { color: var(--gold); }
 
 .case-end { display: flex; flex-wrap: wrap; gap: 18px 22px; padding-block: 24px clamp(64px, 8vw, 96px); }
 
