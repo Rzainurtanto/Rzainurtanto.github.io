@@ -266,7 +266,7 @@
       modalLink.href = link;
       // Link ke halaman di website ini (mis. studi kasus) dibuka di tab yang sama
       modalLink.target = /^https?:/.test(link) ? '_blank' : '';
-      $('.link-label', modalLink).textContent = card.dataset.linkLabel || 'KUNJUNGI PROJECT';
+      $('.link-label', modalLink).textContent = card.dataset.linkLabel || 'Kunjungi project';
     }
 
     // Link kedua (opsional), misalnya video demo
@@ -275,7 +275,7 @@
     if (altLink) {
       modalLinkAlt.href = altLink;
       modalLinkAlt.target = /^https?:/.test(altLink) ? '_blank' : '';
-      $('.link-label', modalLinkAlt).textContent = card.dataset.linkAltLabel || 'TONTON DEMO';
+      $('.link-label', modalLinkAlt).textContent = card.dataset.linkAltLabel || 'Tonton demo';
     }
 
     buildGallery(getImages(card), title, card.dataset.poster);
@@ -358,10 +358,10 @@
   const hudTime = $('.hud-time');
   const sceneLabel = $('.scene-label');
   const timesOfDay = {
-    dawn: { name: 'PAGI', label: 'morning routine', greet: ['GOOD', 'MORNING!'] },
-    day: { name: 'SIANG', label: 'daylight', greet: ['HELLO,', 'WELCOME!'] },
-    dusk: { name: 'SORE', label: 'golden hour', greet: ['GOOD', 'EVENING!'] },
-    night: { name: 'MALAM', label: 'night shift', greet: ['STILL UP?', 'WELCOME!'] }
+    dawn: { name: 'PAGI', label: 'pagi', greet: ['PAGI!', 'KOPI DULU'] },
+    day: { name: 'SIANG', label: 'siang', greet: ['BUILD APK', 'DULU YA'] },
+    dusk: { name: 'SORE', label: 'senja', greet: ['LAGI DEBUG', 'PRINTER...'] },
+    night: { name: 'MALAM', label: 'begadang', greet: ['NONTON', 'BARCA NANTI'] }
   };
   // Untuk mencoba suasana lain: tambahkan ?time=dawn | day | dusk | night di URL
   const forcedTime = new URLSearchParams(location.search).get('time');
@@ -410,10 +410,10 @@
   // pose: '' (diam), 'is-waving' (melambai), 'is-phone' (main HP)
   const idleScenes = [
     { pose: 'is-waving', duration: 3000, text: () => timesOfDay[currentTime].greet },
-    { pose: '', duration: 3200, text: ["LET'S", 'CREATE!'] },
-    { pose: 'is-phone', duration: 4400, text: ['WAIT,', 'NEW NOTIF!'] },
+    { pose: '', duration: 3200, text: ['DENGERIN', 'BACK NUMBER'] },
+    { pose: 'is-phone', duration: 4400, text: ['SATU FITUR', 'LAGI...'] },
     // Malam hari teman-teman kecilnya tidur, jadi karakter utama berbisik
-    { pose: '', duration: 3200, text: () => (currentTime === 'night' ? ['SSST...', "THEY'RE ASLEEP"] : ['NICE TO', 'MEET YOU!']) }
+    { pose: '', duration: 3200, text: () => (currentTime === 'night' ? ['SSST...', 'MEREKA TIDUR'] : ['SALAM', 'KENAL!']) }
   ];
   let sceneIndex = 0;
 
@@ -519,7 +519,7 @@
     button.addEventListener('click', async () => {
       try {
         await copyText(button.dataset.copy);
-        showToast('✦ EMAIL TERSALIN!');
+        showToast('✦ Email tersalin!');
       } catch (e) {
         showToast(button.dataset.copy);
       }
@@ -742,6 +742,14 @@
     musicPanel.classList.toggle('is-playing', musicOn);
     musicPlay.classList.toggle('is-playing', musicOn);
     musicPlay.setAttribute('aria-label', musicOn ? 'Jeda lagu' : 'Putar lagu');
+    $$('[data-play-music]').forEach((button) => {
+      const label = $('.play-label', button);
+      if (!label.dataset.idle) label.dataset.idle = label.textContent;
+      button.classList.toggle('is-playing', musicOn);
+      button.setAttribute('aria-pressed', String(musicOn));
+      $('.play-icon', button).textContent = musicOn ? '❚❚' : '▶';
+      label.textContent = musicOn ? 'Jeda lagu' : label.dataset.idle;
+    });
   };
 
   const showTrack = (info) => {
@@ -800,7 +808,7 @@
       musicOn = false;
       updateMusicUI();
       if (error && error.name === 'NotAllowedError') return 'blocked';
-      showToast('MUSIK TIDAK BISA DIPUTAR');
+      showToast('Musik tidak bisa diputar');
       return 'error';
     }
     autoStarted = true;
@@ -836,11 +844,11 @@
     setMusic(!musicOn);
   });
 
-  // Tombol "Putar lagu" di kartu Side Quests
+  // Tombol "Putar lagu" di hero dan kartu hobi: putar / jeda
   $$('[data-play-music]').forEach((button) => {
     button.addEventListener('click', () => {
-      if (musicOn && player) showNowPlaying(player.info);
-      else setMusic(true);
+      autoStarted = true;
+      setMusic(!musicOn);
     });
   });
 
@@ -872,7 +880,7 @@
       player.pause();
       musicToggle.classList.remove('is-playing');
       musicPanel.classList.remove('is-playing');
-      showToast('♪ MUSIK DIJEDA SELAMA VIDEO');
+      showToast('♪ Musik dijeda selama video');
     } else if (!videoHasSound() && pausedForVideo) {
       pausedForVideo = false;
       if (!document.hidden) player.resume();
@@ -894,27 +902,9 @@
   setVolumeUI();
   showTrack(MUSIC);
 
-  // Putar otomatis saat halaman dibuka. Browser biasanya memblokir audio sebelum
-  // pengunjung berinteraksi, jadi kalau diblokir lagu mulai pada klik/tap/tombol pertama.
-  // Kalau pengunjung pernah mematikan musik, pilihannya dihormati (tidak diputar otomatis).
-  const startOnFirstGesture = () => {
-    const onGesture = (event) => {
-      ['pointerdown', 'keydown', 'touchstart'].forEach((type) => document.removeEventListener(type, onGesture));
-      if (musicOn) return;
-      // Klik pada pemutar musik sudah ditangani tombolnya sendiri
-      if (event.target.closest && event.target.closest('.music-wrap')) return;
-      setMusic(true, { remember: false });
-    };
-    ['pointerdown', 'keydown', 'touchstart'].forEach((type) => document.addEventListener(type, onGesture, { passive: true }));
-  };
-
-  let musicPref = null;
-  try { musicPref = localStorage.getItem('music'); } catch (e) { /* storage tidak tersedia */ }
-  if (musicPref !== 'off') {
-    setMusic(true, { remember: false }).then((result) => {
-      if (result === 'blocked') startOnFirstGesture();
-    });
-  }
+  // Musik tidak diputar otomatis: pengunjung memutarnya sendiri lewat tombol di hero,
+  // kartu hobi, atau ikon musik di header.
+  updateMusicUI();
 
   /* ---------- Mulai dari atas saat halaman dibuka / di-refresh ---------- */
   // Hapus #bagian dari alamat (misalnya #work setelah klik menu) supaya refresh tidak lompat ke sana
